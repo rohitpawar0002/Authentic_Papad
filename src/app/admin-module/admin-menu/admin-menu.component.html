@@ -1,0 +1,30 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let item of foodData">
+        <div class="foodbox mb-3 mt-3">
+          <img src="{{ item.foodImg }}" />
+          <h1>{{ item.foodName }}</h1>
+          <p>{{ item.foodDetails }}</p>
+          <br />
+          <div>
+            <div class="priceborder">
+              <p>{{ item.foodPrice | currency : "INR" : "symbol" : "3.0" }} {{ item.unit }}</p>
+              
+              
+            </div>
+            <br />
+            <a class="buybtn" [routerLink]="['/menu', item.id]"
+            >Delete</a>
+              <a class="cartbutton" [routerLink]="['../edit/product',item.id]">Edit</a>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="addbutton">
+    <button class="btn btn-danger">Add</button>
+  </div>
+  
+    

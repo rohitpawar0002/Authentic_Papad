@@ -1,0 +1,5 @@
+.grad{
+    height: 1200px;
+    background-image:linear-gradient(to bottom right, red,blue,orange,skyblue,purple,yellow);
+}
+

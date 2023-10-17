@@ -1,0 +1,93 @@
+.card
+{
+    height:60vh;
+    margin: 24px;
+    padding: 25px;
+}
+
+.center
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.center img{
+    margin-bottom:10%;
+    border-radius:80px;
+
+}
+
+.cardFront img{
+   margin: 1rem;
+   
+}
+
+.center .btn
+{
+    font-size: 14px !important;
+    margin-top: 20px !important;
+    font-weight: 400;
+    padding: 12px 72px;
+    border-radius: 3px !important;
+}
+.buttons{
+    margin-left:41rem;
+    margin-bottom: 2rem;
+}
+.grandtotal{
+    margin: 1rem;
+    margin-left:41rem;
+}
+.m-header{
+    background: rgb(214,174,123);
+    background: linear-gradient(90deg, rgba(214,174,123,1) 10%, rgba(234,205,163,1) 100%, rgba(255,255,255,1) 100%);
+    margin-bottom: -1%;
+    color:#ffffff;
+}
+ .m-header h4{
+    margin-left: 35%;
+    
+}
+.closebutton{
+    margin-left:91%;
+    
+}
+.error-message{
+    color: red;
+    font-size: 15px;
+    
+}
+
+.form-control.ng-touched.ng-valid{
+    border: 1px solid green;
+}
+
+
+.m-body input{
+    margin-left:35%;
+   
+    
+}
+
+.m-body span{
+    margin-left:35%;
+    
+}
+
+.m-footer{
+    background: rgb(214,174,123);
+    background: linear-gradient(90deg, rgba(214,174,123,1) 10%, rgba(234,205,163,1) 100%, rgba(255,255,255,1) 100%);
+    margin-top: -1%;
+}
+
+.elements{
+    margin: 2rem;
+}
+.elements button {
+    margin-left:50rem;
+    margin-top:-17rem;
+}
+
+

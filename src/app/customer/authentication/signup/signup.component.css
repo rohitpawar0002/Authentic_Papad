@@ -1,0 +1,41 @@
+.pagebackground{
+    background-color:#9ac1bc;
+}
+.container{
+    padding:2rem ;
+}
+.headingtext{
+    margin-top:0rem;
+    margin-left: 7rem;
+    color:rgb(1, 1, 1);
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.textfield{
+    margin-top:1rem;
+}
+.errormsg{
+    margin-top:0.7rem;
+}
+.button{
+    margin-top:2rem;
+}
+.lockicon{
+    text-align: center;
+    margin-top:-2rem;
+}
+
+.eye{
+    margin-left: 23rem;
+    margin-top: -2.1rem;
+    cursor: pointer;
+    
+}
+.bottmotext p{
+    color: #393f81;
+    padding-top:1rem;
+}
+.image img{ 
+    height:35rem;
+    
+}

@@ -1,0 +1,58 @@
+.footer{
+    overflow: hidden;
+    bottom:-100rem;
+    background-color:black;
+}
+h1{
+    font-weight: bold;
+    
+    color: #fff;
+    font-size: 20px;
+}
+p{
+    color: #fff;
+    font-size: 13px
+}
+h6{
+    text-decoration: underline;
+    margin-top:5%;
+    margin-bottom:0%;
+    color: #fff;
+}
+.address{
+    font-weight: bold;
+    margin-left:0%;
+    padding-left: 0%;
+
+}
+.address i{
+    margin-left:0%;
+    padding-left: 0%;
+}
+a{
+    color:#fff;
+    text-decoration: none;
+    padding: 1px 5px;
+    font-size: 17px;
+    
+}
+a:hover{
+    color: var(--primary-color);
+}
+i{
+    padding: 10px;
+}
+ .logo img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px 20px;
+    width:25%;
+     
+}
+.map iframe{ 
+    margin-bottom: 0%;
+}
+
+  
+
+

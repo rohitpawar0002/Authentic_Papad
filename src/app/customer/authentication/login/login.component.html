@@ -1,0 +1,77 @@
+<section class="pagebackground ">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            
+            <div class="col-md-8 col-lg-5 d-none d-md-block">
+              <div class="image">
+                <img src="../../../../assets/loginposter/loginimage2.png"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              </div>
+
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                    <!--Lock Icon-->
+                  <div class="lockicon">
+                     <fa-icon [icon]="faLock" class="fa-2x mt-1"></fa-icon>
+                  </div>
+                  <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+                    <div class="headingtext">
+                    <h3>Sign into your account</h3>
+                  </div>
+
+                    <div class="textfield">
+                    <div class="form-outline mb-4">
+                      <input type="email" formControlName="email" [ngClass]="{'is-invalid':submitted && loginform.get('email')?.errors}" placeholder="Email address" class="form-control form-control-lg" />
+                      <div *ngIf=" submitted || loginform.get('email')?.invalid && (loginform.get('email')?.dirty || loginform.get('email')?.touched)">
+                        <div *ngIf="loginform.get('email')?.hasError('required')">
+                         <!-- <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
+                        </div>
+                        <div *ngIf="loginform.get('email')?.hasError('email')">
+                         <!-- <div class="errormsg"><span class="text-danger">Enter valid email</span></div> -->
+                        </div>
+                        
+                      </div>
+                    </div>
+
+              
+                     <input [type]="type" formControlName="pass" style="position: relative;" [ngClass]="{'is-invalid':submitted && loginform.get('pass')?.errors}" placeholder="Password"  class="form-control form-control-lg" />
+              
+                     
+                      <div class="eye" (click)="hideShowPass()" class="fa {{eyeIcon}}"></div>
+                    
+                   <div *ngIf=" submitted || loginform.get('pass')?.invalid && (loginform.get('pass')?.dirty || loginform.get('pass')?.touched)">
+                      <div *ngIf="loginform.get('pass')?.hasError('required')">
+                      <!--  <div class="errormsg"><span class="text-danger">Password is required</span></div>-->
+                        </div>
+                        <div *ngIf="loginform.get('pass')?.hasError('pattern')">
+                       <!-- <div class="errormsg"><span class="text-danger"> Password must contain one uppercase letter 
+                            and at least 5 characters<br>Password cannot contain whitespace</span></div>-->
+                        </div>
+                      </div>
+                  
+                     
+                    </div>
+              
+                  <div class="button">
+                      <button class="btn btn-dark btn-lg col-12" type="submit">Login</button>
+                    
+                  </div>
+
+                  <div class="bottmotext">
+                   <p >Don't have an account? <a routerLink="../signup">Register here</a></p>
+                  </div>  
+                  </form>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    
+  </section>

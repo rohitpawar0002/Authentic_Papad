@@ -1,0 +1,56 @@
+<div class="mainnavbar">
+<nav class="navbar navbar-color shadow p-3 navbar-expand-lg navbar-light px-3 ">
+  <!--Backet-->
+  <div class="navbar-cart d-flex">
+    <a class="navbar-cart-icon mt-4 " routerLink="customer/cart"><i class="bi bi-cart4" style="font-size: 2rem;" ></i></a>
+     <p class="badge bg-danger mt-4 rounded-2 p-1" style="height: 1.2rem;">{{totalItem}}</p>
+  </div>
+  <div class=" ms-3">
+    <a class="loginicon" routerLink="customer/auth/login"><i class="bi bi-person-lock" style="font-size: 2rem;"></i></a>
+  </div>
+  
+
+     <!--Bacaket End-->
+
+  <!--logo-->
+  <div class="logo mt-2 ms-4 me-5">
+    <img src="../../assets/authenticlogo/logo2.png" alt="Logo not found!">
+  </div>
+<!--logo-->
+
+ 
+    <img class="namaste" src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+<!--Templary Admin Login Button-->
+    <div>
+      <button class="btn btn-dark" routerLink="Admin/adminlogin">Admin Login</button>
+    </div>
+
+    <div class="mobile">
+     <p>Contact Us :-</p><a href="tel:9730023006">9730023006</a>  
+     <br>
+      <a  href="tel:9273823423">9273823423</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="customer/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="customer/menu" routerLinkActive="active-link">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="customer/about" routerLinkActive="active-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="customer/contact" routerLinkActive="active-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+

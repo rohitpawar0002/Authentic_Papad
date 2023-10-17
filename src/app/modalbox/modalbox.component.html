@@ -1,0 +1,91 @@
+<div class="modal-header">
+  <h4 class="modal-title" style="color: white">Select Item Quantity</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+
+<div class="modal-body">
+  <div class="selectdetil">
+    <img src="{{item.foodImg}}" alt="">
+    <h6>{{ item.foodName }}</h6>
+    <h6>
+      {{ item.foodPrice | currency : "INR" : "symbol" : "3.0" }} / {{ item.unit }}
+    </h6>
+  </div>
+
+  <div class="container mt-3" role="main">
+    <div>
+      <form [formGroup]="quantityForm" >
+      <div *ngIf="isDropdownVisible">
+        <ng-select
+          class="box"
+          [clearable]="false"
+          (change)="quantitySelected($event)"
+          formControlName="inputQuantity"
+          placeholder="Select Quantity"
+        >
+          <ng-option *ngFor="let ditem of dropdownvalues" [value]="ditem.value" >
+            {{ ditem.option }} {{ item.unit }}
+          </ng-option>
+        </ng-select>
+      </div>
+
+     
+      <div class="justify-content-center row d-flex" *ngIf="showTextBox">
+       <div class="col-8 me-2">
+        <input
+          formControlName="inputQuantity"
+          type="number"
+          id="textBox"
+          class="form-control"
+          (input)="quantitySelected($event)"
+          placeholder="Enter.. eg- 6 10 12 1/2 ..."
+        />
+      </div>
+        <div class="col-2 pe-0">{{item.unit}}</div>
+      </div>
+      </form> 
+    </div>
+  </div>
+  <div class="quantityPrice mt-5" *ngIf="calculateQuPrice">
+    Quantity Price:-{{calculateQuPrice}}
+   </div>
+</div>
+
+
+<!--<div class="">
+  <p >{{ selectedOption }}</p>   //selected item display
+  <p> {{ inputText }}</p>
+</div>
+-->
+
+<!--<p class=" msg">{{successMessage}}</p> -->
+<div class="modal-footer">
+  <div class="closebutton">
+  <button
+    type="button"
+    class="btn text-white"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>
+
+  <div class="addbutton">
+    <div class="addcart">
+    <button
+      type="button"
+      class="btn text-white"
+      (click)="onSubmit()"  
+    >
+      Add to cart
+    </button>
+ 
+  </div>
+  </div>
+</div>
+

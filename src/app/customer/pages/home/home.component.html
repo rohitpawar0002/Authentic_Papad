@@ -1,0 +1,84 @@
+
+    <div class="divimage">
+    <ngb-carousel class="carousel-style" [interval]="3000" [pauseOnHover]=false
+	[pauseOnFocus]=false [showNavigationArrows]=false *ngIf="images" >
+        <ng-template  ngbSlide >
+            <div  class="picsum-img-wrapper ">
+                <img [src]="images[0]" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="batatatext">Kurdai</h3>
+                <p class="kurdaidown" >Most Purchased Item</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div  class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="batatatext">Batata Papad</h3>
+                <p class="batatadown">Made with potato, also eating in fast</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div  class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3 class="batatatext">Udad Papad</h3>
+                <p>This papad is mostly serve in hotels, as a starter</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+
+    <div class="content">
+     <h2 class="mb-4 ">Authentic  <br>पापड</h2>
+
+        <a routerLink="menu">ORDER NOW<i class="bi bi-arrow-right"></i></a>
+    </div>
+  
+<div class="container mt-4 mb-4">
+    <h2 class="text-center mb-4">How to get <span class="highlight">fresh food</span></h2>
+    <div class="row">
+       
+            <div class="col-lg-4 mt-2">
+                <div class="stepBox">
+                <h2>1</h2>
+                <p>select food</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-2">
+                <div class="stepBox">
+                <h2>2</h2>
+                <p>fill the details</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-2">
+                <div class="stepBox">
+                <h2>3</h2>
+                <p>your order delivered in minute</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!--foodbox-->
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <h1 class="text-center mt-4">Customers <span class="highlight">Favourites Food</span></h1>
+        <div class="col-lg-3 mt-3" *ngFor="let fd of foodData;index as i">
+            <div class="foodbox" *ngIf="i<=3">
+                <img  src="{{fd.foodImg}}"/>
+                <h1>{{fd.foodName}}</h1>
+            <div class="priceborder">
+                <p>{{fd.foodPrice | currency:'INR':'symbol':'3.0'}} {{fd.unit}}</p>
+            </div>
+             
+            </div>
+        </div>
+    </div>
+    <a routerLink="menu" class="viewmorebtn">view more<i class="bi bi-arrow-right"></i></a>
+</div>
+
+
+</div>

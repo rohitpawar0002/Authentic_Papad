@@ -1,0 +1,15 @@
+.whole{
+    height:45rem;
+    width: 40rem;
+    margin: 2rem;
+    margin-left: 20rem;
+}
+.wholeForm{
+    height:37rem;
+}
+.wholeForm h2{
+    margin-top:-2rem;
+}
+.wholeForm input{
+    margin-top:-0.8rem;
+}
