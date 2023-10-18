@@ -1,78 +1,120 @@
 <!-- Section: Design Block -->
 <section class="whole text-center">
-    <!-- Background image -->
-    <div class="p-5 bg-image" style="
-          background-image: url('../../../assets/AdminLoginBackground/background.jpg');
-          height:200px;
-          "></div>
-    <!-- Background image -->
-  
-    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-          margin-top: -100px;
-          background: hsla(0, 0%, 100%, 0.8);
-          backdrop-filter: blur(30px);
-          ">
+  <!-- Background image -->
+  <div
+    class="p-5 bg-image"
+    style="
+      background-image: url('../../../assets/AdminLoginBackground/background.jpg');
+      height: 200px;
+    "
+  ></div>
+  <!-- Background image -->
 
-     <div class="wholeForm">
+  <div
+    class="card mx-4 mx-md-5 shadow-5-strong"
+    style="
+      margin-top: -100px;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(30px);
+    "
+  >
+    <div class="wholeForm">
       <div class="card-body py-5 px-md-5">
-  
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
             <h2 class="fw-bold mb-5">Admin Login</h2>
-            <form [formGroup]="adminloginform" (ngSubmit)="onSubmit()">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <!-- 2 column grid layout with text inputs for the first and last names -->
-            
+
               <!-- Email input -->
-             
+
               <div class="form-outline mb-4">
-                <input type="email" formControlName="email" [ngClass]="{'is-invalid':submitted && adminloginform.get('email')?.errors}"  id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label>
-                <div *ngIf="submitted || adminloginform.get('email')?.invalid && (adminloginform.get('email')?.dirty || adminloginform.get('email')?.touched)">
-                  <div *ngIf="adminloginform.get('email')?.hasError('required')">
+                <input
+                  type="email"
+                  formControlName="email"
+                  [ngClass]="{
+                    'is-invalid': submitted && loginForm.get('email')?.errors
+                  }"
+                  id="form3Example3"
+                  class="form-control"
+                />
+                <label class="form-label" for="form3Example3"
+                  >Email address</label
+                >
+                <div
+                  *ngIf="
+                    submitted ||
+                    (loginForm.get('email')?.invalid &&
+                      (loginForm.get('email')?.dirty ||
+                        loginForm.get('email')?.touched))
+                  "
+                >
+                  <div *ngIf="loginForm.get('email')?.hasError('required')">
                     <p class="text-danger">Email required</p>
                   </div>
-                  <div *ngIf="adminloginform.get('email')?.hasError('email')">
+                  <div *ngIf="loginForm.get('email')?.hasError('email')">
                     <p class="text-danger">Enter valid email</p>
                   </div>
                 </div>
               </div>
-  
+
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" formControlName="pass" [ngClass]="{'is-invalid':submitted && adminloginform.get('pass')?.errors}" id="form3Example4" class="form-control" />
+                <input
+                  type="password"
+                  formControlName="pass"
+                  [ngClass]="{
+                    'is-invalid': submitted && loginForm.get('pass')?.errors
+                  }"
+                  id="form3Example4"
+                  class="form-control"
+                />
                 <label class="form-label" for="form3Example4">Password</label>
-                <div *ngIf="submitted || adminloginform.get('pass')?.invalid && (adminloginform.get('pass')?.dirty || adminloginform.get('pass')?.touched)">
-                  <div *ngIf="adminloginform.get('pass')?.hasError('required') ">
-                    <p class="text-danger">Password required<p>
+                <div
+                  *ngIf="
+                    submitted ||
+                    (loginForm.get('pass')?.invalid &&
+                      (loginForm.get('pass')?.dirty ||
+                        loginForm.get('pass')?.touched))
+                  "
+                >
+                  <div *ngIf="loginForm.get('pass')?.hasError('required')">
+                    <p class="text-danger">Password required</p>
+                    <p></p>
                   </div>
-                  <div *ngIf="adminloginform.get('pass')?.hasError('patter')">
+
+                  <div *ngIf="loginForm.get('pass')?.hasError('patter')">
                     <p class="text-danger">Enter valid password</p>
                   </div>
                 </div>
               </div>
-  
+
               <!-- Checkbox -->
               <div class="bottmotext">
-                <p >Don't have an account? <a routerLink="../adminsignup">Register here</a></p>
-               </div> 
-  
+                <p>
+                  Don't have an account?
+                  <a routerLink="../admin/signup">Register here</a>
+                </p>
+              </div>
+
               <!-- Submit button -->
               <button type="submit" class="btn btn-dark btn-block mb-4">
                 Sign in
               </button>
 
-               <!-- Tempray AdminMenu button -->
-              <button type="submit" routerLink="../adminmenu" class="btn btn-dark btn-block mb-4">
+              <!-- Temporary AdminMenu button -->
+              <button
+                type="submit"
+                routerLink="../admin/menu"
+                class="btn btn-dark btn-block mb-4"
+              >
                 Admin Menu
               </button>
-  
-            
             </form>
           </div>
         </div>
       </div>
     </div>
-    </div>
-
-  </section>
-  <!-- Section: Design Block -->
+  </div>
+</section>
+<!-- Section: Design Block -->

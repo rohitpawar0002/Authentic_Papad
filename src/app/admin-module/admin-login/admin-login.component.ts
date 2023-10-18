@@ -4,30 +4,36 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css']
+  styleUrls: ['./admin-login.component.css'],
 })
 export class AdminLoginComponent implements OnInit {
+  constructor(private fb: FormBuilder) {}
 
-  constructor(private formbuilder:FormBuilder){}
-
-  adminloginform!:FormGroup
-  submitted=false;
+  loginForm!: FormGroup;
+  submitted = false;
 
   ngOnInit(): void {
-    this.adminloginform=this.formbuilder.group({
-      email:['',[Validators.required,Validators.email]],
-      pass:['',[Validators.required,Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,99}'))]]
-    })
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      pass: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{5,99}'
+          ),
+        ],
+      ],
+    });
   }
 
+  onSubmit() {
+    this.submitted = true;
 
-  onSubmit(){
-     this.submitted=true
+    if (this.loginForm.invalid) {
+      return;
+    }
 
-     if(this.adminloginform.invalid){
-      return
-     }
-
-     alert("Success")
+    alert('Success');
   }
 }

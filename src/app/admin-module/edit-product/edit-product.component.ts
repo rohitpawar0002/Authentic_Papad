@@ -4,28 +4,28 @@ import { ActivatedRoute } from '@angular/router';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
 
 @Component({
-  selector: 'app-editproduct',
-  templateUrl: './editproduct.component.html',
-  styleUrls: ['./editproduct.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class EditproductComponent implements OnInit{
+export class EditProductComponent implements OnInit{
 
-  editform!:FormGroup 
+  editForm!:FormGroup 
   getEditId: any;
   EditData:any;
 
-constructor(private formbuilder:FormBuilder,private param:ActivatedRoute,private service:OrderDetailsService){}
+constructor(private fb:FormBuilder,private param:ActivatedRoute,private service:OrderDetailsService){}
 
 
 ngOnInit(): void {
-  this.editform=this.formbuilder.group({
+  this.editForm=this.fb.group({
     name:['',Validators.required],
     description:['',Validators.required],
     unit:['',Validators.required],
     price:['',Validators.required]
 })
 
-this.editform.patchValue(
+this.editForm.patchValue(
   { 
     name:"dd",
     description:"product description",
@@ -38,13 +38,13 @@ this.editform.patchValue(
 
 
 this.getEditId=this.param.snapshot.paramMap.get('productId');
-console.log(this.getEditId,'getedit');
+console.log(this.getEditId,'getEdit');
 if(this.getEditId)
 {
   this.EditData=this.service.foodDetails.filter((value)=>{
     return value.id==this.getEditId;
   });
-  console.log(this.EditData,'editdata>>');
+  console.log(this.EditData,'editData>>');
 }
 }
 }

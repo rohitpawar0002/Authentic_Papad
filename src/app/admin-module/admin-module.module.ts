@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
-import { EditproductComponent } from './editproduct/editproduct.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -18,7 +18,7 @@ import { EditproductComponent } from './editproduct/editproduct.component';
   AdminLoginComponent,
   AdminSignupComponent,
   AdminMenuComponent,
-  EditproductComponent
+  EditProductComponent
   ],
   imports: [
     CommonModule,

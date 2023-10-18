@@ -4,55 +4,69 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-admin-signup',
   templateUrl: './admin-signup.component.html',
-  styleUrls: ['./admin-signup.component.css']
+  styleUrls: ['./admin-signup.component.css'],
 })
 export class AdminSignupComponent implements OnInit {
+  signForm!: FormGroup;
+  submitted = false;
 
- adminsignupform!:FormGroup
- submitted=false;           
+  constructor(private fb: FormBuilder) {}
 
-
-constructor(private formbuilder:FormBuilder){}
-
-ngOnInit(): void {
- this.adminsignupform=this.formbuilder.group({
-  first:['',Validators.required],
-  last:['',Validators.required],
-  mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-  email:['',[Validators.required,Validators.email]],
-  pass:['',[Validators.required,Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,99}'))]],
-  confirmpass:['',Validators.required]
- },
- {
-    validators:this.MustMatch('pass','confirmpass')
- });
-
-}
-
-onSubmit(){
-  this.submitted=true;
-
-  if(this.adminsignupform.invalid){
-    return
+  ngOnInit(): void {
+    this.signForm = this.fb.group(
+      {
+        first: ['', Validators.required],
+        last: ['', Validators.required],
+        mobile: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
+          ],
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        pass: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(
+              '(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{5,99}'
+            ),
+          ],
+        ],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: this.MustMatch('pass', 'confirmPassword'),
+      }
+    );
   }
 
-  alert('Success')
-}
+  onSubmit() {
+    this.submitted = true;
 
-MustMatch(pass:string,confirmpass:string){
-  return(formgroup:FormGroup)=>{
-    const passwordcontrol=formgroup.controls[pass];
-    const confirmpasswordControl=formgroup.controls[confirmpass];
-    if(confirmpasswordControl.errors && !confirmpasswordControl.errors['MustMatch']){
-      return
+    if (this.signForm.invalid) {
+      return;
     }
-    if(passwordcontrol.value!==confirmpasswordControl.value){
-      confirmpasswordControl.setErrors({MustMatch:true});
-    }
-    else{
-      confirmpasswordControl.setErrors(null);
-    }
+
+    alert('Success');
   }
-}
 
+  MustMatch(pass: string, confirmPassword: string) {
+    return (form: FormGroup) => {
+      const passwordControl = form.controls[pass];
+      const confirmPasswordControl = form.controls[confirmPassword];
+      if (
+        confirmPasswordControl.errors &&
+        !confirmPasswordControl.errors['MustMatch']
+      ) {
+        return;
+      }
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ MustMatch: true });
+      } else {
+        confirmPasswordControl.setErrors(null);
+      }
+    };
+  }
 }
