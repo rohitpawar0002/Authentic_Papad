@@ -66,5 +66,5 @@ export class BuyNowComponent implements OnInit {
   //  return;
   //}
 
-  //alert("Sucess");
+  //alert("Success");
 //}
