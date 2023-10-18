@@ -14,37 +14,30 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CartModalComponent } from './CartModal/cart-modal.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     CartModalComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
 
   imports: [
     BrowserModule,
-    AppRoutingModule, 
-    FormsModule ,
+    AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
-      positionClass:"toast-top-right"
+      positionClass: 'toast-top-right',
     }),
     NgSelectModule,
     FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[CartModalComponent]
+  exports: [CartModalComponent],
 })
-export class AppModule {
-  constructor(){
-    console.log("Appmodule Loaded");
-    
-  }
- }
- 
+export class AppModule {}

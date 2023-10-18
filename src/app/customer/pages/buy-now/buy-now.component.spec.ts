@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenupageComponent } from './menupage.component';
+import { BuyNowComponent } from './buy-now.component';
 
-describe('MenupageComponent', () => {
-  let component: MenupageComponent;
-  let fixture: ComponentFixture<MenupageComponent>;
+describe('BuyNowComponent', () => {
+  let component: BuyNowComponent;
+  let fixture: ComponentFixture<BuyNowComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MenupageComponent]
+      declarations: [BuyNowComponent]
     });
-    fixture = TestBed.createComponent(MenupageComponent);
+    fixture = TestBed.createComponent(BuyNowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

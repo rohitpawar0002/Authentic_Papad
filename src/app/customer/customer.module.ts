@@ -7,7 +7,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
-import { MenupageComponent } from './pages/menupage/menupage.component';
+import { BuyNowComponent } from './pages/buy-now/buy-now.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ContactComponent,
   HomeComponent,
   MenuComponent,
-  MenupageComponent
+  BuyNowComponent
    
   ],
   imports: [

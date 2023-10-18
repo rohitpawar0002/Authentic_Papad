@@ -5,7 +5,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
-import { MenupageComponent } from './pages/menupage/menupage.component';
+import { BuyNowComponent } from './pages/buy-now/buy-now.component';
 
 const routes: Routes = [
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'auth', loadChildren:()=>import("./authentication/authentication.module").then(x=> x.AuthenticationModule)},
   {path:'menu',component:MenuComponent},
-  {path:'menu/:id',component:MenupageComponent}
+  {path:'buy/now/:id',component:BuyNowComponent}
 ];
 
 @NgModule({

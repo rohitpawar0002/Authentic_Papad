@@ -5,11 +5,11 @@ import { FormGroup, Validators,FormBuilder, FormControl } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-menupage',
-  templateUrl: './menupage.component.html',
-  styleUrls: ['./menupage.component.css']
+  selector: 'app-buy-now',
+  templateUrl: './buy-now.component.html',
+  styleUrls: ['./buy-now.component.css']
 })
-export class MenupageComponent implements OnInit {
+export class BuyNowComponent implements OnInit {
   
   myForm!:FormGroup;
   submitted:any;
@@ -22,13 +22,11 @@ export class MenupageComponent implements OnInit {
 
   ngOnInit(): void{
     this.getMenuId=this.param.snapshot.paramMap.get('id');
-    console.log(this.getMenuId,'getmenu');
     if(this.getMenuId)
     {
       this.menuData=this.service.foodDetails.filter((value)=>{
         return value.id==this.getMenuId;
       });
-      console.log(this.menuData,'menudata>>');
     }
   
 
