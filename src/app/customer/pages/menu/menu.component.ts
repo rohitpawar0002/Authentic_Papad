@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
 import { CartService } from 'src/app/customer/services/cart.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalboxComponent } from 'src/app/modalbox/modalbox.component';
+import { CartModalComponent } from 'src/app/CartModal/cart-modal.component';
 
 
 declare var window: any;
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
  
 
   openModal(item:any) {
-    const modalRef = this.modalService.open(ModalboxComponent);
+    const modalRef = this.modalService.open(CartModalComponent);
 		modalRef.componentInstance.item = item;
    
   }

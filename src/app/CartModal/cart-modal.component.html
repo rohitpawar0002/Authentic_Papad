@@ -9,7 +9,7 @@
 </div>
 
 <div class="modal-body">
-  <div class="selectdetil">
+  <div class="select-detail">
     <img src="{{item.foodImg}}" alt="">
     <h6>{{ item.foodName }}</h6>
     <h6>
@@ -28,8 +28,8 @@
           formControlName="inputQuantity"
           placeholder="Select Quantity"
         >
-          <ng-option *ngFor="let ditem of dropdownvalues" [value]="ditem.value" >
-            {{ ditem.option }} {{ item.unit }}
+          <ng-option *ngFor="let dUnit of dropDownValues" [value]="dUnit.value" >
+            {{ dUnit.option }} {{ item.unit }}
           </ng-option>
         </ng-select>
       </div>
@@ -65,7 +65,7 @@
 
 <!--<p class=" msg">{{successMessage}}</p> -->
 <div class="modal-footer">
-  <div class="closebutton">
+  <div class="closeButton">
   <button
     type="button"
     class="btn text-white"
@@ -75,8 +75,8 @@
   </button>
 </div>
 
-  <div class="addbutton">
-    <div class="addcart">
+  <div class="addButton">
+    <div class="add-cart">
     <button
       type="button"
       class="btn text-white"

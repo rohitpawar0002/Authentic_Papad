@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalboxComponent } from 'src/app/modalbox/modalbox.component';
+import { CartModalComponent } from 'src/app/CartModal/cart-modal.component';
 import { CartService } from 'src/app/customer/services/cart.service';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
 
@@ -23,7 +23,7 @@ export class AdminMenuComponent {
  
 
   openModal(item:any) {
-    const modalRef = this.modalService.open(ModalboxComponent);
+    const modalRef = this.modalService.open(CartModalComponent);
 		modalRef.componentInstance.item = item;
    
   }

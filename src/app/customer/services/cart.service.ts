@@ -20,7 +20,7 @@ public productList=new BehaviorSubject<any>([]);
     this.productList.next(product);
   }
 
-  addtoCart(product:any){
+  addToCart(product:any){
     console.log(product);
     
     this.cartItemList.push(product);

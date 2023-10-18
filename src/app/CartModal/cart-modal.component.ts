@@ -7,11 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-modalbox',
-  templateUrl: './modalbox.component.html',
-  styleUrls: ['./modalbox.component.css'],
+  selector: 'app-cart-modal',
+  templateUrl: './cart-modal.component.html',
+  styleUrls: ['./cart-modal.component.css'],
 })
-export class ModalboxComponent {
+export class CartModalComponent {
   @Input() item: any;
 
 quantityForm!:FormGroup;
@@ -20,7 +20,7 @@ quantityForm!:FormGroup;
   showTextBox: boolean = false;
   calculateQuPrice:any;
   isDropdownVisible: boolean = true;
-  dropdownvalues: any = [];
+  dropDownValues: any = [];
   packetOptions = [{option:'1',value:1},{option:'2',value:2},{option:'3',value:3},{option:'4',value:4},{option:'5',value:5},{option:'custom',value:'custom'}];
   kgOptions = [{option:'1/2', value:0.5},{option:'1',value:1},{option:'2',value:2},{option:'3',value:3},{option:'4',value:4},{option:'5',value:5},{option:'custom',value:'custom'}];
   constructor(
@@ -34,7 +34,7 @@ quantityForm!:FormGroup;
     this.quantityForm = this.fb.group({
       inputQuantity:[,Validators.required]
     }) 
-    this.dropdownvalues = this.item.unit === 'kg' ? this.kgOptions : this.packetOptions;
+    this.dropDownValues = this.item.unit === 'kg' ? this.kgOptions : this.packetOptions;
   }
 
   get inputQuantity() {
@@ -59,9 +59,11 @@ quantityForm!:FormGroup;
     }
     this.item.quantity = this.inputQuantity.value
     this.item.price = this.calculateQuPrice
-    this.toastr.success('Please check bucket', 'Added Sucessfully!');
-   
-    this.cartService.addtoCart(this.item);
+    this.toastr.success('Please check bucket', 'Added Successfully!');
+   // add product to cart
+    this.cartService.addToCart(this.item);
+    // close modal
+    this.activeModal.close()
 
    }
 }

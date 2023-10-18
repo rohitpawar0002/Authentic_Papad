@@ -52,7 +52,7 @@ a:hover{
  height:5rem;
 }
 .mobile p{
- margin-left:15rem;
+ margin-left:12rem;
  margin-top: -1.6rem;
  position:absolute;
  color: #ffff;
@@ -60,12 +60,16 @@ a:hover{
 
 }
 .mobile a{
-    margin-left:22rem;
-    margin-top:-2.4rem;
+    margin-top:-1.6rem;
+    width: auto;
     position: absolute;
     text-decoration: none;
     font-weight:100;
+    color: white;
 }
 
+.mobile a:hover{
+    color: rgba(39, 39, 189, 0.582);
+}
 
 

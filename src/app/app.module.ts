@@ -12,13 +12,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ModalboxComponent } from './modalbox/modalbox.component';
+import { CartModalComponent } from './CartModal/cart-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalboxComponent,
+    CartModalComponent,
     NavbarComponent,
     FooterComponent
   ],
@@ -39,7 +39,7 @@ import { ModalboxComponent } from './modalbox/modalbox.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports:[ModalboxComponent]
+  exports:[CartModalComponent]
 })
 export class AppModule {
   constructor(){
