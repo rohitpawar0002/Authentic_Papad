@@ -7,9 +7,9 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 const routes: Routes = [
-{path:'admin/login',component:AdminLoginComponent},
-{path:'admin/signup',component:AdminSignupComponent},
-{path:'admin/menu',component:AdminMenuComponent},
+{path:'login',component:AdminLoginComponent},
+{path:'signup',component:AdminSignupComponent},
+{path:'menu',component:AdminMenuComponent},
 {path:'edit/product/:productId',component:EditProductComponent},
 {path:'new/product',component:EditProductComponent}
 ];
