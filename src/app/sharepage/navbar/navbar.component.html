@@ -1,17 +1,17 @@
-<div class="mainnavbar">
-  <nav class="navbar navbar-color shadow p-3 navbar-expand-lg navbar-light px-3 ">
+<div class="mainNavbar">
+  <nav class="navbar navbar-color shadow navbar-expand-lg navbar-light px-3 py-0 ">
     <!--Bucket-->
     <div class="navbar-cart d-flex">
-      <div class="navbar-cart-icon  ">
+      <div class="d-flex counter-object ">
         <a routerLink="customer/cart"><i class="bi bi-cart4"
           style="font-size: 2rem;"></i></a>
-        <div class="counterobject">
+        <span>
             <p class="badge bg-danger">{{totalItem}}</p>
-          </div>
+        </span>
       </div>
     </div>
     <div class=" ms-3">
-      <a class="loginicon" routerLink="customer/auth/login"><i class="bi bi-person-lock"
+      <a class="login-icon" routerLink="customer/auth/login"><i class="bi bi-person-lock"
           style="font-size: 2rem;"></i></a>
     </div>
 
@@ -25,7 +25,7 @@
     <!--logo-->
 
 
-    <img class="namaste" src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
+    <img class="hand-logo" src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

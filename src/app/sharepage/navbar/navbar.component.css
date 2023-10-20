@@ -1,4 +1,4 @@
-.mainnavbar{
+.mainNavbar{
     position: relative;
     top: 0;
     z-index: 10;
@@ -13,11 +13,11 @@
     margin-left:15rem;
     margin-bottom: -1rem;
 }
-.navbar-cart{
+/* .navbar-cart{
   height:7rem;
-}
+} */
 
-.loginicon{
+.login-icon{
     color: #ffff;
 }
 a{
@@ -38,7 +38,7 @@ a:hover{
     background-color:#DD9934
 }
 
-.namaste{
+.hand-logo{
     margin-left:20vw;
 }
 
@@ -75,8 +75,7 @@ a:hover{
 .navbar-cart-icon {
     margin-top:2rem;
 }
-.counterobject {
-    margin-top:-3rem;
-    margin-left: 2.1rem;
+.counter-object {
+    margin-top: -1rem;
 }
 
