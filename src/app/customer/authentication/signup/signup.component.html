@@ -1,5 +1,5 @@
-<section class="pagebackground" *ngIf="sinform">
-  <div class="slide-right">
+<section class="pagebackground" >
+  <div >
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
@@ -18,7 +18,84 @@
                   <div class="lockicon">
                      <fa-icon [icon]="faLock" class="fa-2x mt-1"></fa-icon>
                   </div>
+                  
+                  
+                    <div class="slide-left" *ngIf="!sinform">
+                      <form [formGroup]="address" (ngSubmit)="onSubmit()">
+                        <div class="headingtext">
+                        <h3>Register yourself</h3>
+                      </div>
+    
+                        <div class="textfield">
+                          <div class="form-outline mb-2">
+                             <input type="text" formControlName="line1" [ngClass]="{'is-invalid':submitted && address.get('line1')?.errors}" placeholder="Address Line1" class="form-control form-control-lg" />
+                               <div *ngIf=" submitted || address.get('line1')?.invalid && (address.get('line1')?.dirty || address.get('line1')?.touched)">
+                                 <div *ngIf="address.get('line1')?.hasError('required')">
+                                  <!-- <div class="errormsg"><span class="text-danger">Name is required</span></div> -->
+                                  </div>
+                                  
+                                  </div>
+                              </div>
+    
+                          
+                                <div class="form-outline mb-2">
+                                   <input type="text" formControlName="line2" [ngClass]="{'is-invalid':submitted && address.get('line2')?.errors}" placeholder="Address Line2" class="form-control form-control-lg" />
+                                     <div *ngIf=" submitted || address.get('line2')?.invalid && (address.get('line2')?.dirty || address.get('line2')?.touched)">
+                                       <div *ngIf="address.get('line2')?.hasError('required')">
+                                      <!--   <div class="errormsg"><span class="text-danger">Mobile number is required</span></div> -->
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
+                              
+    
+                        <div class="form-outline mb-2">
+                          <input type="number" formControlName="zip" [ngClass]="{'is-invalid':submitted && address.get('zip')?.errors}" placeholder="Zip" class="form-control form-control-lg" />
+                          <div *ngIf=" submitted || address.get('zip')?.invalid && (address.get('zip')?.dirty || address.get('zip')?.touched)">
+                            <div *ngIf="address.get('zip')?.hasError('required')">
+                            <!--  <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
+                            </div>
+                            
+                             </div>
+                        </div>
+    
+                        <div class="form-outline mb-3">
+                          <input type="text" formControlName="city" [ngClass]="{'is-invalid':submitted && address.get('city')?.errors}" placeholder="City"  class="form-control form-control-lg" />
+                       <div *ngIf=" submitted || address.get('city')?.invalid && (address.get('city')?.dirty || address.get('city')?.touched)">
+                          <div *ngIf="address.get('city')?.hasError('required')">
+                         <!--   <div class="errormsg"><span class="text-danger">Password is required</span></div> --> 
+                            </div>
+                            
+                          </div>
+                        </div>
+                        
+    
+                        <div class="form-outline mb-2">
+                            <input type="text" formControlName="state" [ngClass]="{'is-invalid':submitted && address.get('state')?.errors}" placeholder="State"  class="form-control form-control-lg" />
+                            <div *ngIf=" submitted || address.get('state')?.invalid && (address.get('state')?.dirty || address.get('state')?.touched)">
+                            <div *ngIf="address.get('state')?.hasError('required')">
+                             <!-- <div class="errormsg"><span class="text-danger">Confirm password is required</span></div> -->
+                              </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    
+                        
+                    <div class="d-flex" >
+                   
+                       <button class="btn btn-dark btn-lg col-6" (click)="backfun()">Back</button>
+                       <button class="btn btn-dark btn-lg col-6 ms-1" type="submit">Sign Up</button>
+                      
+                    </div>
+                      
+                      </form>
+                     
+                    </div>
+                  
 
+                  <div class="slide-right" *ngIf="sinform">
+                     
                   <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
                     <div class="headingtext">
                     <h3>Register yourself</h3>
@@ -103,11 +180,14 @@
                                 
                   </div>
 
-                  <div class="bottmotext">
-                   <p >Have already an account? <a routerLink="../login">Login here</a></p>
-                  </div>  
+           
+                
                   </form>
-                  
+                </div>
+                <div class="bottmotext">
+                  <p >Have already an account? <a routerLink="../login">Login here</a></p>
+                 </div>
+                
                 </div>
               </div>
             </div>
@@ -119,110 +199,3 @@
   </section>
 
   <!--Address-->
-
-  <section class="pagebackground " *ngIf="addform">
-    <div class="slide-left">
-   
-    <div class="container">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card" style="border-radius: 1rem;">
-            <div class="row g-0">
-              
-              <div class="col-md-8 col-lg-5 d-none d-md-block">
-                <div class="image">
-                <img src="../../../assets/signupposter/signupimge.png"
-                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
-              </div>
-            </div>
-              <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                <div class="card-body p-4 p-lg-5 text-black">
-                    <!--Lock Icon-->
-                  <div class="lockicon">
-                     <fa-icon [icon]="faLock" class="fa-2x mt-1"></fa-icon>
-                  </div>
-
-                  <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
-                    <div class="headingtext">
-                    <h3>Register yourself</h3>
-                  </div>
-
-                    <div class="textfield">
-                      <div class="form-outline mb-2">
-                         <input type="text" formControlName="addressline1" [ngClass]="{'is-invalid':submitted && loginform.get('addressline1')?.errors}" placeholder="Address Line1" class="form-control form-control-lg" />
-                           <div *ngIf=" submitted || loginform.get('addressline1')?.invalid && (loginform.get('addressline1')?.dirty || loginform.get('addressline1')?.touched)">
-                             <div *ngIf="loginform.get('addressline1')?.hasError('required')">
-                              <!-- <div class="errormsg"><span class="text-danger">Name is required</span></div> -->
-                              </div>
-                              
-                              </div>
-                          </div>
-
-                      
-                            <div class="form-outline mb-2">
-                               <input type="text" formControlName="addressline2" [ngClass]="{'is-invalid':submitted && loginform.get('addressline2')?.errors}" placeholder="Address Line2" class="form-control form-control-lg" />
-                                 <div *ngIf=" submitted || loginform.get('addressline2')?.invalid && (loginform.get('addressline2')?.dirty || loginform.get('addressline2')?.touched)">
-                                   <div *ngIf="loginform.get('addressline2')?.hasError('required')">
-                                  <!--   <div class="errormsg"><span class="text-danger">Mobile number is required</span></div> -->
-                                    </div>
-                                    
-                                    </div>
-                                </div>
-                          
-
-                    <div class="form-outline mb-2">
-                      <input type="number" formControlName="zip" [ngClass]="{'is-invalid':submitted && loginform.get('zip')?.errors}" placeholder="Zip" class="form-control form-control-lg" />
-                      <div *ngIf=" submitted || loginform.get('zip')?.invalid && (loginform.get('zip')?.dirty || loginform.get('zip')?.touched)">
-                        <div *ngIf="loginform.get('zip')?.hasError('required')">
-                        <!--  <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
-                        </div>
-                        
-                         </div>
-                    </div>
-
-                    <div class="form-outline mb-3">
-                      <input type="text" formControlName="city" [ngClass]="{'is-invalid':submitted && loginform.get('city')?.errors}" placeholder="City"  class="form-control form-control-lg" />
-                   <div *ngIf=" submitted || loginform.get('city')?.invalid && (loginform.get('pass')?.dirty || loginform.get('city')?.touched)">
-                      <div *ngIf="loginform.get('city')?.hasError('required')">
-                     <!--   <div class="errormsg"><span class="text-danger">Password is required</span></div> --> 
-                        </div>
-                        
-                      </div>
-                    </div>
-                    
-
-                    <div class="form-outline mb-2">
-                        <input type="text" formControlName="state" [ngClass]="{'is-invalid':submitted && loginform.get('state')?.errors}" placeholder="State"  class="form-control form-control-lg" />
-                        <div *ngIf=" submitted || loginform.get('state')?.invalid && (loginform.get('state')?.dirty || loginform.get('state')?.touched)">
-                        <div *ngIf="loginform.get('state')?.hasError('required')">
-                         <!-- <div class="errormsg"><span class="text-danger">Confirm password is required</span></div> -->
-                          </div>
-                         
-                        </div>
-                    </div>
-                </div>
-                
-                    
-              
-                  <div class="addressSignupbutton">
-                      <button class="btn btn-dark btn-lg col-12" type="submit">Sign Up</button>
-                    
-                  </div>
-
-                  <div class="bottmotext">
-                   <p >Have already an account? <a routerLink="../login">Login here</a></p>
-                  </div>  
-                  </form>
-                  <div class="backbtn">
-                    <button class="btn btn-dark" (click)="backfun()">Back</button>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>

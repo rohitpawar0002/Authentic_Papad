@@ -13,6 +13,7 @@ export class SignupComponent {
   addform=false;
 
   loginform!:FormGroup;
+  address!:FormGroup;
   submitted=false;
 
   type:string="password"
@@ -32,15 +33,19 @@ export class SignupComponent {
       email:['',[Validators.required,Validators.email]],
       pass:['',[Validators.required,Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,99}'))]],
       confirmPass:['',Validators.required],
-      addressline1:['',Validators.required],
-      addressline2:['',Validators.required],
-      zip:['',Validators.required],
-      city:['',Validators.required],
-      state:['',Validators.required],
+  
     },
     {
       validators:this.MustMatch('pass','confirmPass')
     });
+
+    this.address=this.formBuilder.group({
+      line1:['',Validators.required],
+      line2:['',Validators.required],
+      zip:['',Validators.required],
+      city:['',Validators.required],
+      state:['',Validators.required]
+    })
   }
 
   hideShowPass(){
@@ -77,6 +82,9 @@ export class SignupComponent {
     if(this.loginform.invalid){
         return;
       }
+    else if(this.address.invalid){
+      return;
+    }
       
   
       alert("Sucess");
