@@ -1,7 +1,9 @@
 .foodBox
 {
     padding:0.1rem;
+    background-color: #3544530c;
     max-width: 25rem;
+    min-width: 15rem;
 }
 .foodBox img
 {
@@ -76,9 +78,7 @@
     box-shadow: 0 0 20px #eee;
     display: block;
     font-size:0.9rem;
-    margin-top: 1rem;
-    
-    
+    margin-top: 1rem;   
 }
 .cartButton:hover{
    background-position: right center; /* change the direction of the change here */
@@ -97,5 +97,6 @@
     min-height: 2.5rem;
 }
   
-
-
+.remove-color{
+    background-color: initial;
+}
