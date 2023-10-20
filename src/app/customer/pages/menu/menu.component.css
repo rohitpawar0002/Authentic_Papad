@@ -1,7 +1,6 @@
 .foodBox
 {
     padding:0.1rem;
-    background-color: #3544530c;
     max-width: 25rem;
 }
 .foodBox img
@@ -14,6 +13,7 @@
     filter: brightness(120%);
     filter: contrast(120%);
     filter: drop-shadow(5px 5px 5px black);
+
 }
 .foodBox img:hover
 {
@@ -57,6 +57,8 @@
     box-shadow: 0 0 20px #eee;
     display: block;
     font-size:0.9rem;
+    margin-top: 1rem;
+    margin-left:-0.6rem;
 }
 .buyBtn:hover{
     background-position: right center; /* change the direction of the change here */
@@ -74,6 +76,9 @@
     box-shadow: 0 0 20px #eee;
     display: block;
     font-size:0.9rem;
+    margin-top: 1rem;
+    
+    
 }
 .cartButton:hover{
    background-position: right center; /* change the direction of the change here */

@@ -2,9 +2,13 @@
   <nav class="navbar navbar-color shadow p-3 navbar-expand-lg navbar-light px-3 ">
     <!--Bucket-->
     <div class="navbar-cart d-flex">
-      <a class="navbar-cart-icon mt-4 " routerLink="customer/cart"><i class="bi bi-cart4"
+      <div class="navbar-cart-icon  ">
+        <a routerLink="customer/cart"><i class="bi bi-cart4"
           style="font-size: 2rem;"></i></a>
-      <p class="badge bg-danger mt-4 rounded-2 p-1" style="height: 1.2rem;">{{totalItem}}</p>
+        <div class="counterobject">
+            <p class="badge bg-danger">{{totalItem}}</p>
+          </div>
+      </div>
     </div>
     <div class=" ms-3">
       <a class="loginicon" routerLink="customer/auth/login"><i class="bi bi-person-lock"

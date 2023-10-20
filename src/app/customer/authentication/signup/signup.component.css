@@ -39,3 +39,37 @@
     height:35rem;
     
 }
+.slide-left,.slide-right{
+    width: 100%;
+}
+.slide-left  {
+    animation: 0.5s slide-left;
+  }
+  @keyframes slide-left {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  
+.slide-right {
+    animation: 0.5s slide-right;
+  }
+  @keyframes slide-right {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+   .backbtn{
+    margin-left:23rem;
+    margin-top:-3rem;
+  }
+  .addressSignupbutton{
+    margin-top: 1rem;
+  }

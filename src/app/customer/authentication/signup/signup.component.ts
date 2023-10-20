@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { faL, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +9,8 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 })
 export class SignupComponent {
   faLock=faLock;
+  sinform = true;
+  addform=false;
 
   loginform!:FormGroup;
   submitted=false;
@@ -29,7 +31,12 @@ export class SignupComponent {
       mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       email:['',[Validators.required,Validators.email]],
       pass:['',[Validators.required,Validators.pattern(('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{5,99}'))]],
-      confirmPass:['',[Validators.required]]
+      confirmPass:['',Validators.required],
+      addressline1:['',Validators.required],
+      addressline2:['',Validators.required],
+      zip:['',Validators.required],
+      city:['',Validators.required],
+      state:['',Validators.required],
     },
     {
       validators:this.MustMatch('pass','confirmPass')
@@ -73,6 +80,18 @@ export class SignupComponent {
       
   
       alert("Sucess");
+    }
+    toggleForm() {
+      this.submitted=true
+      if (this.loginform.invalid){
+        return;
+      }
+      this.sinform=false;
+      this.addform=true;
+    }
+    backfun(){
+      this.sinform=true;
+      this.addform=false;
     }
 }
 

@@ -72,4 +72,11 @@ a:hover{
     color: rgba(39, 39, 189, 0.582);
 }
 
+.navbar-cart-icon {
+    margin-top:2rem;
+}
+.counterobject {
+    margin-top:-3rem;
+    margin-left: 2.1rem;
+}
 
