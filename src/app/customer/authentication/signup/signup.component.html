@@ -28,8 +28,8 @@
     
                         <div class="textfield">
                           <div class="form-outline mb-2">
-                             <input type="text" formControlName="line1" [ngClass]="{'is-invalid':submitted && address.get('line1')?.errors}" placeholder="Address Line1" class="form-control form-control-lg" />
-                               <div *ngIf=" submitted || address.get('line1')?.invalid && (address.get('line1')?.dirty || address.get('line1')?.touched)">
+                             <input type="text" formControlName="line1" [ngClass]="{'is-invalid':addresssubmitted && address.get('line1')?.errors}" placeholder="Address Line1" class="form-control form-control-lg" />
+                               <div *ngIf=" addresssubmitted || address.get('line1')?.invalid && (address.get('line1')?.dirty || address.get('line1')?.touched)">
                                  <div *ngIf="address.get('line1')?.hasError('required')">
                                   <!-- <div class="errormsg"><span class="text-danger">Name is required</span></div> -->
                                   </div>
@@ -39,8 +39,8 @@
     
                           
                                 <div class="form-outline mb-2">
-                                   <input type="text" formControlName="line2" [ngClass]="{'is-invalid':submitted && address.get('line2')?.errors}" placeholder="Address Line2" class="form-control form-control-lg" />
-                                     <div *ngIf=" submitted || address.get('line2')?.invalid && (address.get('line2')?.dirty || address.get('line2')?.touched)">
+                                   <input type="text" formControlName="line2" [ngClass]="{'is-invalid':addresssubmitted && address.get('line2')?.errors}" placeholder="Address Line2" class="form-control form-control-lg" />
+                                     <div *ngIf=" addresssubmitted || address.get('line2')?.invalid && (address.get('line2')?.dirty || address.get('line2')?.touched)">
                                        <div *ngIf="address.get('line2')?.hasError('required')">
                                       <!--   <div class="errormsg"><span class="text-danger">Mobile number is required</span></div> -->
                                         </div>
@@ -50,8 +50,8 @@
                               
     
                         <div class="form-outline mb-2">
-                          <input type="number" formControlName="zip" [ngClass]="{'is-invalid':submitted && address.get('zip')?.errors}" placeholder="Zip" class="form-control form-control-lg" />
-                          <div *ngIf=" submitted || address.get('zip')?.invalid && (address.get('zip')?.dirty || address.get('zip')?.touched)">
+                          <input type="number" formControlName="zip" [ngClass]="{'is-invalid':addresssubmitted && address.get('zip')?.errors}" placeholder="Zip" class="form-control form-control-lg" />
+                          <div *ngIf=" addresssubmitted || address.get('zip')?.invalid && (address.get('zip')?.dirty || address.get('zip')?.touched)">
                             <div *ngIf="address.get('zip')?.hasError('required')">
                             <!--  <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
                             </div>
@@ -60,8 +60,8 @@
                         </div>
     
                         <div class="form-outline mb-3">
-                          <input type="text" formControlName="city" [ngClass]="{'is-invalid':submitted && address.get('city')?.errors}" placeholder="City"  class="form-control form-control-lg" />
-                       <div *ngIf=" submitted || address.get('city')?.invalid && (address.get('city')?.dirty || address.get('city')?.touched)">
+                          <input type="text" formControlName="city" [ngClass]="{'is-invalid':addresssubmitted && address.get('city')?.errors}" placeholder="City"  class="form-control form-control-lg" />
+                       <div *ngIf=" addresssubmitted || address.get('city')?.invalid && (address.get('city')?.dirty || address.get('city')?.touched)">
                           <div *ngIf="address.get('city')?.hasError('required')">
                          <!--   <div class="errormsg"><span class="text-danger">Password is required</span></div> --> 
                             </div>
@@ -71,8 +71,8 @@
                         
     
                         <div class="form-outline mb-2">
-                            <input type="text" formControlName="state" [ngClass]="{'is-invalid':submitted && address.get('state')?.errors}" placeholder="State"  class="form-control form-control-lg" />
-                            <div *ngIf=" submitted || address.get('state')?.invalid && (address.get('state')?.dirty || address.get('state')?.touched)">
+                            <input type="text" formControlName="state" [ngClass]="{'is-invalid':addresssubmitted && address.get('state')?.errors}" placeholder="State"  class="form-control form-control-lg" />
+                            <div *ngIf=" addresssubmitted || address.get('state')?.invalid && (address.get('state')?.dirty || address.get('state')?.touched)">
                             <div *ngIf="address.get('state')?.hasError('required')">
                              <!-- <div class="errormsg"><span class="text-danger">Confirm password is required</span></div> -->
                               </div>
@@ -96,7 +96,7 @@
 
                   <div class="slide-right" *ngIf="sinform">
                      
-                  <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+                  <form [formGroup]="loginform">
                     <div class="headingtext">
                     <h3>Register yourself</h3>
                   </div>
@@ -176,7 +176,7 @@
                     
               
                   <div class="button">
-                      <button class="btn btn-dark btn-lg col-12" (click)="toggleForm()" type="submit">Next</button>
+                      <button class="btn btn-dark btn-lg col-12" (click)="toggleForm()" type="button">Next</button>
                                 
                   </div>
 

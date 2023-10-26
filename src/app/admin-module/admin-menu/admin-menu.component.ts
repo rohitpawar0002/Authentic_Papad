@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartModalComponent } from 'src/app/CartModal/cart-modal.component';
-import { CartService } from 'src/app/customer/services/cart.service';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
-
 @Component({
   selector: 'app-admin-menu',
   templateUrl: './admin-menu.component.html',
@@ -13,13 +11,11 @@ export class AdminMenuComponent {
   constructor(
     private service: OrderDetailsService,
     private modalService: NgbModal,
-    private cartService:CartService
-
-    
   ) {}
   foodData: any;
   fd: any;
   formModal: any;
+  
  
 
   openModal(item:any) {
@@ -31,6 +27,5 @@ export class AdminMenuComponent {
    ngOnInit(): void {
     this.foodData = this.service.foodDetails;
 
-    
   }
 }

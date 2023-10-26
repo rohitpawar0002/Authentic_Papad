@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CartModalComponent } from './CartModal/cart-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { CartModalComponent } from './CartModal/cart-modal.component';
     }),
     NgSelectModule,
     FontAwesomeModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

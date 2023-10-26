@@ -15,6 +15,7 @@ export class SignupComponent {
   loginform!:FormGroup;
   address!:FormGroup;
   submitted=false;
+  addresssubmitted=false;
 
   type:string="password"
   isText:boolean=false;
@@ -78,6 +79,7 @@ export class SignupComponent {
   onSubmit(){
   
     this.submitted=true
+    this.addresssubmitted=true
   
     if(this.loginform.invalid){
         return;

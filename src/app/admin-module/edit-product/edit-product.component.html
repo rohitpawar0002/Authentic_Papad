@@ -1,6 +1,6 @@
 <div class="formsize">
 <div class="container mt-4">
-<form [formGroup]="editForm">
+<form [formGroup]="editForm" (ngSubmit)="submit()">
 
     <div *ngIf="EditData">
         <img src="{{EditData[0].foodImg}}">

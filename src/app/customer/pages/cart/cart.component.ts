@@ -3,6 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from 'src/app/customer/services/cart.service';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
 import { FormGroup, Validators,FormBuilder, FormControl, Form } from '@angular/forms';
+import { HttpServiceService } from '../../services/http-service.service';
 
 
 
@@ -25,7 +26,10 @@ export class CartComponent implements OnInit {
   
   addressData = {};
   
-  constructor(private cartService:CartService,private modalService: NgbModal,private formBuilder: FormBuilder){}
+  constructor(private cartService:CartService,
+              private modalService: NgbModal,
+              private formBuilder: FormBuilder,
+              private httpService:HttpServiceService){}
 
   ngOnInit():void{  
     this.cartService.getProducts()
@@ -84,6 +88,11 @@ openLg(content: any) {
 
 removeItem(item:any){
   this.cartService.removeCartItem(item);
+  this.httpService.delete(item).subscribe((result)=>{
+    console.log(result);
+    
+  })
+
 }
 emptycart()
 {

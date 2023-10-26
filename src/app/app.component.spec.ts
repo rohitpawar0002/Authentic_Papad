@@ -19,14 +19,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have a title property', () => {
-    expect(app.title1).toBeDefined();
-  });
-
-  it('should have the correct title', () => {
-    expect(app.title1).toEqual('routing-blog');
-  });
-
   it('should render the title in the template', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;

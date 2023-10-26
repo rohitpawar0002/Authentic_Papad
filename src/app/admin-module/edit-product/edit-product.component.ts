@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { HttpServiceService } from 'src/app/customer/services/http-service.service';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
+
 
 @Component({
   selector: 'app-edit-product',
@@ -11,10 +13,16 @@ import { OrderDetailsService } from 'src/app/customer/services/order-details.ser
 export class EditProductComponent implements OnInit{
 
   editForm!:FormGroup 
-  getEditId: any;
+  productId: any;
   EditData:any;
+  EditProduct=null;
 
-constructor(private fb:FormBuilder,private param:ActivatedRoute,private service:OrderDetailsService){}
+
+constructor(private fb:FormBuilder,
+            private param:ActivatedRoute,
+            private service:OrderDetailsService,
+            private httpService:HttpServiceService,
+            private foodData:OrderDetailsService){}
 
 
 ngOnInit(): void {
@@ -25,6 +33,14 @@ ngOnInit(): void {
     price:['',Validators.required]
 })
 
+this.productId=this.param.snapshot.paramMap.get('productId');
+if(this.productId)
+{
+this.bindValue(this.productId)
+}
+}
+bindValue(id:any){
+ // TODO: get product from backend and bind values to form
 this.editForm.patchValue(
   { 
     name:"dd",
@@ -32,19 +48,11 @@ this.editForm.patchValue(
     unit:'kg',
     price:100
   }
- )
-
-
-
-
-this.getEditId=this.param.snapshot.paramMap.get('productId');
-console.log(this.getEditId,'getEdit');
-if(this.getEditId)
-{
-  this.EditData=this.service.foodDetails.filter((value)=>{
-    return value.id==this.getEditId;
-  });
-  console.log(this.EditData,'editData>>');
+ )   
 }
+
+submit(){
+  // TODO: check if productId available then hit update product api 
+  //        otherwise hit create product api
 }
 }

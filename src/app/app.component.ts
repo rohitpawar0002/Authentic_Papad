@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpServiceService } from './customer/services/http-service.service';
 
 
 
@@ -11,31 +12,13 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class AppComponent implements OnInit{
-  title1= "Form Validaion" ;
+
+  userData:any=[];
+  constructor(private httpService:HttpServiceService){  }
  
 
   ngOnInit(): void {
     
   }
  
-    
-
-images=[
-  {
-    imageSrc:"../../assets/image/banerimage1.jpg",
-    imageAlt:'nature1',
-  },
-  {
-    imageSrc:"../../assets/image/",
-    imageAlt:'nature2',
-  },
-  {
-    imageSrc:"../../assets/image/mig3.jpeg",
-    imageAlt:'nature3',
-  },
-]
-
-
-
-
 }

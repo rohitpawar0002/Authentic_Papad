@@ -1,0 +1,5 @@
+TODO: create http interceptor in it add auth token to headers autherization breare
+TODO: check beare token
+TODO: on login save authtoken to localstorage create service
+TODO: add login api in both side customers and admin
+TODO: add product api

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { HttpServiceService } from '../../services/http-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,8 +18,7 @@ export class LoginComponent implements OnInit {
   isText:boolean=false;
   eyeIcon:string="fa-eye-slash"
 
-
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private http:HttpServiceService){}
   ngOnInit():void{  
     this.loginform=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
@@ -36,12 +36,20 @@ export class LoginComponent implements OnInit {
   
     this.submitted=true
   
-    if(this.loginform.invalid){
+    if(this.loginform.invalid)  {
         return;
       }
+      alert("Sucess");    
+      console.log(this.loginform.value);
+      this.http.post('/users',this.loginform.value).subscribe((result)=>{
+        console.log(result);
+        
+      })   
       
-  
-      alert("Sucess");
     }
-}
+ 
+  }
+   
+    
+
 
