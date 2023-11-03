@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthRoutingModule } from './authentication-routing.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -15,7 +16,11 @@ import { AuthRoutingModule } from './authentication-routing.module';
     FormsModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-top-right',
+    })
   ]
 })
 export class AuthenticationModule { }

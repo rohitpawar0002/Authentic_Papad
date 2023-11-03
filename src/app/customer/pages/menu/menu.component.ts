@@ -3,6 +3,8 @@ import { OrderDetailsService } from 'src/app/customer/services/order-details.ser
 import { CartService } from 'src/app/customer/services/cart.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartModalComponent } from 'src/app/CartModal/cart-modal.component';
+import { HttpServiceService } from '../../services/http-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 declare var window: any;
@@ -15,8 +17,9 @@ export class MenuComponent implements OnInit {
   constructor(
     private service: OrderDetailsService,
     private modalService: NgbModal,
-    private cartService:CartService
-
+    private cartService:CartService,
+    private httpService:HttpServiceService,
+    private toaster:ToastrService
     
   ) {}
   foodData: any;
@@ -32,7 +35,15 @@ export class MenuComponent implements OnInit {
   
    ngOnInit(): void {
     this.foodData = this.service.foodDetails;
+this.httpService.get("item").subscribe({
+  next:(res)=>{
+console.log(res);
 
+  },
+  error:(err)=>{
+    this.toaster.error("Porducts Fecting failed!")
+  }
+})
     
   }
 }

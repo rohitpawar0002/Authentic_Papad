@@ -50,9 +50,9 @@
                               
     
                         <div class="form-outline mb-2">
-                          <input type="number" formControlName="zip" [ngClass]="{'is-invalid':addresssubmitted && address.get('zip')?.errors}" placeholder="Zip" class="form-control form-control-lg" />
-                          <div *ngIf=" addresssubmitted || address.get('zip')?.invalid && (address.get('zip')?.dirty || address.get('zip')?.touched)">
-                            <div *ngIf="address.get('zip')?.hasError('required')">
+                          <input type="number" formControlName="pinCode" [ngClass]="{'is-invalid':addresssubmitted && address.get('pinCode')?.errors}" placeholder="PinCode" class="form-control form-control-lg" />
+                          <div *ngIf=" addresssubmitted || address.get('pinCode')?.invalid && (address.get('pinCode')?.dirty || address.get('pinCode')?.touched)">
+                            <div *ngIf="address.get('pinCode')?.hasError('required')">
                             <!--  <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
                             </div>
                             
@@ -141,15 +141,15 @@
                     </div>
 
                     <div class="form-outline mb-3">
-                      <input [type]="type" formControlName="pass" [ngClass]="{'is-invalid':submitted && loginform.get('pass')?.errors}" placeholder="Password"  class="form-control form-control-lg" />
+                      <input [type]="type" formControlName="password" [ngClass]="{'is-invalid':submitted && loginform.get('password')?.errors}" placeholder="Password"  class="form-control form-control-lg" />
                       <div class="eye">
                       <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
                       </div>
-                   <div *ngIf=" submitted || loginform.get('pass')?.invalid && (loginform.get('pass')?.dirty || loginform.get('pass')?.touched)">
-                      <div *ngIf="loginform.get('pass')?.hasError('required')">
+                   <div *ngIf=" submitted || loginform.get('password')?.invalid && (loginform.get('password')?.dirty || loginform.get('password')?.touched)">
+                      <div *ngIf="loginform.get('password')?.hasError('required')">
                      <!--   <div class="errormsg"><span class="text-danger">Password is required</span></div> --> 
                         </div>
-                        <div *ngIf="loginform.get('pass')?.hasError('pattern')">
+                        <div *ngIf="loginform.get('password')?.hasError('pattern')">
                          <!--  <div class="errormsg"><span class="text-danger"> Password must contain one uppercase letter 
                             and at least 5 characters<br>Password cannot contain whitespace</span></div> -->  
                         </div>

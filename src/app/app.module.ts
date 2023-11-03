@@ -13,7 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CartModalComponent } from './CartModal/cart-modal.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorInterceptor } from './customer/services/auth-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:AuthInterceptorInterceptor,multi:true }
+  ],
   bootstrap: [AppComponent],
   exports: [CartModalComponent],
 })

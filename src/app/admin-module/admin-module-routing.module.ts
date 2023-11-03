@@ -20,7 +20,6 @@ const routes: Routes = [
 })
 export class AdminModuleRoutingModule {
   constructor(){
-    console.log("Admin Module Loaded");
     
   }
  }

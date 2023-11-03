@@ -30,30 +30,30 @@
 
               <div class="form-outline mb-4">
                 <input
-                  type="email"
-                  formControlName="email"
+                  type="number"
+                  formControlName="mobile"
                   [ngClass]="{
-                    'is-invalid': submitted && loginForm.get('email')?.errors
+                    'is-invalid': submitted && loginForm.get('mobile')?.errors
                   }"
                   id="form3Example3"
                   class="form-control"
                 />
                 <label class="form-label" for="form3Example3"
-                  >Email address</label
+                  >Mobile</label
                 >
                 <div
                   *ngIf="
                     submitted ||
-                    (loginForm.get('email')?.invalid &&
-                      (loginForm.get('email')?.dirty ||
-                        loginForm.get('email')?.touched))
+                    (loginForm.get('mobile')?.invalid &&
+                      (loginForm.get('mobile')?.dirty ||
+                        loginForm.get('mobile')?.touched))
                   "
                 >
-                  <div *ngIf="loginForm.get('email')?.hasError('required')">
-                    <p class="text-danger">Email required</p>
+                  <div *ngIf="loginForm.get('mobile')?.hasError('required')">
+                    <p class="text-danger">Mobile required</p>
                   </div>
-                  <div *ngIf="loginForm.get('email')?.hasError('email')">
-                    <p class="text-danger">Enter valid email</p>
+                  <div *ngIf="loginForm.get('mobile')?.hasError('pattern')">
+                    <p class="text-danger">Enter valid mobile</p>
                   </div>
                 </div>
               </div>
@@ -62,9 +62,9 @@
               <div class="form-outline mb-4">
                 <input
                   type="password"
-                  formControlName="pass"
+                  formControlName="password"
                   [ngClass]="{
-                    'is-invalid': submitted && loginForm.get('pass')?.errors
+                    'is-invalid': submitted && loginForm.get('password')?.errors
                   }"
                   id="form3Example4"
                   class="form-control"
@@ -73,17 +73,17 @@
                 <div
                   *ngIf="
                     submitted ||
-                    (loginForm.get('pass')?.invalid &&
-                      (loginForm.get('pass')?.dirty ||
-                        loginForm.get('pass')?.touched))
+                    (loginForm.get('password')?.invalid &&
+                      (loginForm.get('password')?.dirty ||
+                        loginForm.get('password')?.touched))
                   "
                 >
-                  <div *ngIf="loginForm.get('pass')?.hasError('required')">
+                  <div *ngIf="loginForm.get('password')?.hasError('required')">
                     <p class="text-danger">Password required</p>
                     <p></p>
                   </div>
 
-                  <div *ngIf="loginForm.get('pass')?.hasError('patter')">
+                  <div *ngIf="loginForm.get('password')?.hasError('patter')">
                     <p class="text-danger">Enter valid password</p>
                   </div>
                 </div>

@@ -1,56 +1,75 @@
 <div class="formsize">
-<div class="container mt-4">
-<form [formGroup]="editForm" (ngSubmit)="submit()">
+  <div class="container mt-4">
+    <form [formGroup]="editForm" (ngSubmit)="submit()">
+      <div class="formdiv">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="col-lg-6 mb-2">
+          <div class="col">
+            <div class="form-outline">
+              <input
+                type="text"
+                formControlName="name"
+                id="form6Example1"
+                class="form-control"
+              />
+              <label class="form-label" for="form6Example1">Product Name</label>
+            </div>
+          </div>
+        </div>
 
-    <div *ngIf="EditData">
-        <img src="{{EditData[0].foodImg}}">
+        <div class="col-lg-6 mb-2">
+          <div class="col">
+            <div class="form-outline">
+              <input
+                type="text"
+                formControlName="description"
+                id="form6Example2"
+                class="form-control"
+              />
+              <label class="form-label" for="form6Example2"
+                >Product Description</label
+              >
+            </div>
+          </div>
+        </div>
 
-    </div>
-    <div class="formdiv">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-    <div class=" col-lg-6 mb-2 ">
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" formControlName="name" id="form6Example1" class="form-control" />
-          <label class="form-label" for="form6Example1">Product Name</label>
+        <!-- Text input -->
+        <div class="form-outline col-lg-6 mb-4">
+          <input
+            type="text"
+            formControlName="unit"
+            id="form6Example3"
+            class="form-control"
+          />
+          <label class="form-label" for="form6Example3">Unit</label>
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline col-lg-6 mb-4">
+          <input
+            type="text"
+            formControlName="price"
+            id="form6Example4"
+            class="form-control"
+          />
+          <label class="form-label" for="form6Example4">Price</label>
         </div>
       </div>
-    </div>
 
-    <div class=" col-lg-6 mb-2">
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" formControlName="description" id="form6Example2" class="form-control" />
-          <label class="form-label" for="form6Example2">Product Description</label>
-        </div>
+      <!-- Submit button -->
+      <div class="savebutton">
+        <button type="submit" class="btn btn-primary mb-4">Save</button>
       </div>
-    </div>
-   
-  
-    <!-- Text input -->
-    <div class="form-outline col-lg-6  mb-4">
-      <input type="text" formControlName="unit" id="form6Example3" class="form-control" />
-      <label class="form-label" for="form6Example3">Unit</label>
-    </div>
-  
-    <!-- Text input -->
-    <div class="form-outline  col-lg-6 mb-4">
-      <input type="text" formControlName="price" id="form6Example4" class="form-control" />
-      <label class="form-label" for="form6Example4">Price</label>
-    </div>
+
+      <div class="backbutton">
+        <button
+          type="submit"
+          routerLink="../../../menu"
+          class="btn btn-dark mb-4"
+        >
+          Back
+        </button>
+      </div>
+    </form>
   </div>
-  
-
-  
-    <!-- Submit button -->
-<div class="savebutton">
-    <button type="submit" class="btn btn-primary mb-4">Save</button>
-</div>
-
-<div class="backbutton">
-    <button type="submit" routerLink="../../../menu" class="btn btn-dark mb-4">Back</button>
-</div>
-  </form>
-
-</div>
 </div>

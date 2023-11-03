@@ -1,5 +1,8 @@
 import { Component, KeyValueDiffers, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { HttpServiceService } from 'src/app/customer/services/http-service.service';
 
 @Component({
   selector: 'app-admin-signup',
@@ -10,13 +13,15 @@ export class AdminSignupComponent implements OnInit {
   signForm!: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+              private http:HttpServiceService,
+              private routrt:Router,
+              private toster:ToastrService) {}
 
   ngOnInit(): void {
     this.signForm = this.fb.group(
       {
-        first: ['', Validators.required],
-        last: ['', Validators.required],
+        name: ['', Validators.required],
         mobile: [
           '',
           [
@@ -25,7 +30,7 @@ export class AdminSignupComponent implements OnInit {
           ],
         ],
         email: ['', [Validators.required, Validators.email]],
-        pass: [
+        password: [
           '',
           [
             Validators.required,
@@ -37,7 +42,7 @@ export class AdminSignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       {
-        validators: this.MustMatch('pass', 'confirmPassword'),
+        validators: this.MustMatch('password', 'confirmPassword'),
       }
     );
   }
@@ -49,12 +54,23 @@ export class AdminSignupComponent implements OnInit {
       return;
     }
 
-    alert('Success');
+    delete this.signForm.value.confirmPassword;
+
+    this.http.post('auth/register/admin',this.signForm.value).subscribe({
+      next:(res)=>{
+        this.toster.success('Please login now','Register Successful!')
+        this.routrt.navigate(['../login'])
+      },
+      error:(err)=>{
+        this.toster.error('Please try agian','Invalid admin detiles')
+      }
+    })
+    
   }
 
-  MustMatch(pass: string, confirmPassword: string) {
+  MustMatch(password: string, confirmPassword: string) {
     return (form: FormGroup) => {
-      const passwordControl = form.controls[pass];
+      const passwordControl = form.controls[password];
       const confirmPasswordControl = form.controls[confirmPassword];
       if (
         confirmPasswordControl.errors &&

@@ -24,62 +24,30 @@
           <div class="col-lg-8">
             <h2 class="fw-bold mb-5">Sign up now</h2>
             <form [formGroup]="signForm" (ngSubmit)="onSubmit()">
-              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <!-- 2 column grid layout with text inputs for the name -->
               <div>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        formControlName="first"
-                        [ngClass]="{
-                          'is-invalid':
-                            submitted && signForm.get('first')?.errors
-                        }"
-                        id="form3Example1"
-                        class="form-control"
-                      />
-                      <label class="form-label" for="form3Example1"
-                        >First name</label
-                      >
-                      <div
-                        *ngIf="
-                          submitted ||
-                          (signForm.get('first')?.invalid &&
-                            (signForm.get('first')?.dirty ||
-                              signForm.get('first')?.touched))
-                        "
-                      >
-                        <p class="text-danger">Required</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input
-                        type="text"
-                        formControlName="last"
-                        [ngClass]="{
-                          'is-invalid':
-                            submitted && signForm.get('last')?.errors
-                        }"
-                        id="form3Example2"
-                        class="form-control"
-                      />
-                      <label class="form-label" for="form3Example2"
-                        >Last name</label
-                      >
-                      <div
-                        *ngIf="
-                          submitted ||
-                          (signForm.get('last')?.invalid &&
-                            (signForm.get('last')?.dirty ||
-                              signForm.get('last')?.touched))
-                        "
-                      >
-                        <p class="text-danger">Required</p>
-                      </div>
-                    </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    formControlName="name"
+                    [ngClass]="{
+                      'is-invalid': submitted && signForm.get('name')?.errors
+                    }"
+                    id="form3Example1"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="form3Example1"
+                   >Full name</label
+                  >
+                  <div
+                    *ngIf="
+                      submitted ||
+                      (signForm.get('name')?.invalid &&
+                        (signForm.get('name')?.dirty ||
+                          signForm.get('name')?.touched))
+                    "
+                  >
+                    <!-- <p class="text-danger">Required</p> -->
                   </div>
                 </div>
 
@@ -108,10 +76,10 @@
                     <div
                       *ngIf="signForm.get('mobile')?.hasError('required')"
                     ></div>
-                    <p class="text-danger">Mobile is required</p>
+                    <!-- <p class="text-danger">Mobile is required</p> -->
                   </div>
                   <div *ngIf="signForm.get('mobile')?.hasError('patter')">
-                    <p class="text-danger">Enter valid mobile</p>
+                    <!-- <p class="text-danger">Enter valid mobile</p> -->
                   </div>
                 </div>
 
@@ -139,10 +107,10 @@
                     <div
                       *ngIf="signForm.get('email')?.hasError('required')"
                     ></div>
-                    <p class="text-danger">Email is required</p>
+                    <!-- <p class="text-danger">Email is required</p> -->
                   </div>
                   <div *ngIf="signForm.get('email')?.hasError('pattern')">
-                    Enter valid email
+                    <!-- Enter valid email -->
                   </div>
                 </div>
 
@@ -150,9 +118,10 @@
                 <div class="form-outline mb-4">
                   <input
                     type="password"
-                    formControlName="pass"
+                    formControlName="password"
                     [ngClass]="{
-                      'is-invalid': submitted && signForm.get('pass')?.errors
+                      'is-invalid':
+                        submitted && signForm.get('password')?.errors
                     }"
                     id="form3Example4"
                     class="form-control"
@@ -161,16 +130,16 @@
                   <div
                     *ngIf="
                       submitted ||
-                      (signForm.get('pass')?.invalid &&
-                        (signForm.get('pass')?.dirty ||
-                          signForm.get('pass')?.touched))
+                      (signForm.get('password')?.invalid &&
+                        (signForm.get('password')?.dirty ||
+                          signForm.get('password')?.touched))
                     "
                   >
-                    <div *ngIf="signForm.get('pass')?.hasError('required')">
-                      <p class="text-danger">Password is required</p>
+                    <div *ngIf="signForm.get('password')?.hasError('required')">
+                      <!-- <p class="text-danger">Password is required</p> -->
                     </div>
-                    <div *ngIf="signForm.get('pass')?.hasError('pattern')">
-                      <p class="text-danger">Enter valid password</p>
+                    <div *ngIf="signForm.get('password')?.hasError('pattern')">
+                      <!-- <p class="text-danger">Enter valid password</p> -->
                     </div>
                   </div>
                 </div>
@@ -202,14 +171,14 @@
                         signForm.get('confirmPassword')?.hasError('required')
                       "
                     >
-                      <p class="text-danger">Confirm password is required</p>
+                      <!-- <p class="text-danger">Confirm password is required</p> -->
                     </div>
                     <div
                       *ngIf="
                         signForm.get('confirmPassword')?.hasError('MustMatch')
                       "
                     >
-                      <p class="text-danger">Password didn't match</p>
+                      <!-- <p class="text-danger">Password didn't match</p> -->
                     </div>
                   </div>
                 </div>
