@@ -30,11 +30,10 @@ export class MenuComponent implements OnInit {
   openModal(item:any) {
     const modalRef = this.modalService.open(CartModalComponent);
 		modalRef.componentInstance.item = item;
-   
-  }
+   }
   
-   ngOnInit(): void {
-    this.foodData = this.service.foodDetails;
+ ngOnInit(): void {
+ this.foodData = this.service.foodDetails;
 this.httpService.get("item").subscribe({
   next:(res)=>{
 console.log(res);

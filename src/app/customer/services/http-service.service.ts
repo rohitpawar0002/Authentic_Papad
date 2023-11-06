@@ -28,4 +28,6 @@ export class HttpServiceService {
   patch(url: string, body: any, options: any = {}) {
     return this.http.patch(this.baseurl + url, body, options);
   }
+
+ 
 }

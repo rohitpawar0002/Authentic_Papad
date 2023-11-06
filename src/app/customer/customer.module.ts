@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlaceOrderComponent } from './pages/place-order/place-order.component';
+
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ContactComponent,
   HomeComponent,
   MenuComponent,
-  BuyNowComponent
+  BuyNowComponent,
+  PlaceOrderComponent,
+ 
    
   ],
   imports: [

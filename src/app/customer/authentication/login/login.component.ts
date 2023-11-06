@@ -51,15 +51,19 @@ export class LoginComponent implements OnInit {
         next:(res:any)=>{ 
           this.toster.success('Login Successful')
           this.router.navigate(['/'])
-        this.localstorageService.setItem('access-token', res?.token)
+        this.localstorageService.setItem('token', res?.token)
         console.log(res);
         },
          error:(err:any)=>{
           this.toster.error('Invalid User')
-
-        }
-      })   
-    }
+       }
+      })  
+    };
+    logoutUser(userId:any){
+      this.localstorageService.removeItem('token')
+      this.router.navigate(['login'])
+    } 
+   
   }
    
     

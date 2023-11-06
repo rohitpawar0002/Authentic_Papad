@@ -8,5 +8,7 @@ export class LocalStorageService {
   setItem(key:string, data:string){
     localStorage.setItem(key,data)
   }
-  
+  removeItem(key:string){
+    localStorage.removeItem(key)
+  }
 }

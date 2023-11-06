@@ -49,7 +49,7 @@ export class AdminLoginComponent implements OnInit {
 
     this.http.post('auth/login/admin', this.loginForm.value).subscribe({
       next: (res: any) => {
-        this.localstorageService.setItem('token', res.token);
+        this.localstorageService.setItem('access-token', res?.token);
         this.toster.success("You're welcome", 'Login Successfull!');
         this.router.navigate(["admin/menu"]);
       },

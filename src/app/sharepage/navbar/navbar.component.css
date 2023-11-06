@@ -19,6 +19,7 @@
 
 .login-icon{
     color: #ffff;
+    margin-bottom: 0.5rem;
 }
 a{
     color: #ffff;
@@ -77,5 +78,9 @@ a:hover{
 }
 .counter-object {
     margin-top: -1rem;
+}
+.active{
+    font-size: 18px;
+    font-weight: bold;
 }
 
