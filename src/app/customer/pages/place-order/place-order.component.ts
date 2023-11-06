@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { HttpServiceService } from '../../services/http-service.service';
+import { HttpServiceService } from '../../../shared/http-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-place-order',
@@ -11,20 +10,20 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class PlaceOrderComponent {
 
 
-  placeform!:FormGroup;
+  orderForm!:FormGroup;
   
   submitted=false;
 
   addressData = {};
    modal: any;
-  constructor(private modalService: NgbModal,
+  constructor(
     private formBuilder: FormBuilder,
     private httpService:HttpServiceService){}
 
   
   ngOnInit():void{
 
-  this.placeform=this.formBuilder.group({
+  this.orderForm=this.formBuilder.group({
     name:['',Validators.required],
     mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     email:['',[Validators.required, Validators.email]],
@@ -43,20 +42,20 @@ export class PlaceOrderComponent {
 }
 
 get address() {
-  return this.placeform.get('address')
+  return this.orderForm.get('address')
 }
 
 
 placeclick(){
  
-  console.log(this.placeform.value);
+  console.log(this.orderForm.value);
  
 }
 onSubmit(){
   
   this.submitted=true
 
-  if(this.placeform.invalid){
+  if(this.orderForm.invalid){
       return;
     }
     

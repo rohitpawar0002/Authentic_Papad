@@ -10,12 +10,12 @@
       ></button>
     </div>
     <div class="modal-body m-body">
-      <form [formGroup]="placeform" (ngSubmit)="onSubmit()">
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
         <div class="form-group col-7 mt-2">
           <input
             formControlName="name"
             [ngClass]="{
-              'is-invalid': submitted && placeform.get('name')?.errors
+              'is-invalid': submitted && orderForm.get('name')?.errors
             }"
             type="text"
             class="form-control"
@@ -24,13 +24,13 @@
           <div
             *ngIf="
               submitted ||
-              (placeform.get('name')?.invalid &&
-                (placeform.get('name')?.dirty || placeform.get('name')?.touched))
+              (orderForm.get('name')?.invalid &&
+                (orderForm.get('name')?.dirty || orderForm.get('name')?.touched))
             "
           >
             <div
               class="error-message"
-              *ngIf="placeform.get('name')?.hasError('required')"
+              *ngIf="orderForm.get('name')?.hasError('required')"
             >
               <span> Name is required</span>
             </div>
@@ -40,7 +40,7 @@
           <input
             formControlName="mobile"
             [ngClass]="{
-              'is-invalid': submitted && placeform.get('mobile')?.errors
+              'is-invalid': submitted && orderForm.get('mobile')?.errors
             }"
             type="number"
             class="form-control"
@@ -49,20 +49,20 @@
           <div
             *ngIf="
               submitted ||
-              (placeform.get('mobile')?.invalid &&
-                (placeform.get('mobile')?.dirty ||
-                  placeform.get('mobile')?.touched))
+              (orderForm.get('mobile')?.invalid &&
+                (orderForm.get('mobile')?.dirty ||
+                  orderForm.get('mobile')?.touched))
             "
           >
             <div
               class="error-message"
-              *ngIf="placeform.get('mobile')?.hasError('required')"
+              *ngIf="orderForm.get('mobile')?.hasError('required')"
             >
               <span> Mobile number is required</span>
             </div>
             <div
               class="error-message"
-              *ngIf="placeform.get('mobile')?.hasError('pattern')"
+              *ngIf="orderForm.get('mobile')?.hasError('pattern')"
             >
               <span>Mobile number must be in 10 digits</span>
             </div>
@@ -73,7 +73,7 @@
           <input
             formControlName="email"
             [ngClass]="{
-              'is-invalid': submitted && placeform.get('email')?.errors
+              'is-invalid': submitted && orderForm.get('email')?.errors
             }"
             type="email"
             class="form-control"
@@ -82,20 +82,20 @@
           <div
             *ngIf="
               submitted ||
-              (placeform.get('email')?.invalid &&
-                (placeform.get('email')?.dirty ||
-                  placeform.get('email')?.touched))
+              (orderForm.get('email')?.invalid &&
+                (orderForm.get('email')?.dirty ||
+                  orderForm.get('email')?.touched))
             "
           >
             <div
               class="error-message"
-              *ngIf="placeform.get('email')?.hasError('required')"
+              *ngIf="orderForm.get('email')?.hasError('required')"
             >
               <span> Email is required</span>
             </div>
             <div
               class="error-message"
-              *ngIf="placeform.get('email')?.hasError('email')"
+              *ngIf="orderForm.get('email')?.hasError('email')"
             >
               <span> Enter valid email</span>
             </div>

@@ -1,10 +1,7 @@
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from 'src/app/customer/services/cart.service';
 
-import { HttpServiceService } from '../../services/http-service.service';
-import { PlaceOrderComponent } from '../place-order/place-order.component';
-
+import { HttpServiceService } from '../../../shared/http-service.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -18,7 +15,6 @@ export class CartComponent implements OnInit {
   public grandTotal !:number;
   public productList:any;  
     constructor(private cartService:CartService,
-              private modalService: NgbModal,
               private httpService:HttpServiceService){}
 
   ngOnInit():void{  
@@ -37,7 +33,7 @@ removeItem(item:any){
     console.log(result);
   })
 }
-emptycart()
+emptyCart()
 {
   this.cartService.removeAllCart();
 }

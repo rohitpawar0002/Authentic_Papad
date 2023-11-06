@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/customer/services/cart.service';
 
@@ -9,22 +9,22 @@ import { CartService } from 'src/app/customer/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public totalItem:number=0;
-  constructor(private cartService:CartService, private toster:ToastrService){}
+  public totalItem: number = 0;
+  constructor(private cartService: CartService, private toaster: ToastrService) { }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     this.cartService.getProducts()
-    .subscribe(res=>{
-      this.totalItem=res.length;
-    })
+      .subscribe(res => {
+        this.totalItem = res.length;
+      });
   }
 
-  loggedin(){
+  isLoggedIN() {
     return localStorage.getItem('token');
   }
-  
-   onLogout(){
-    localStorage.removeItem('token')
-    this.toster.success('Logout')
-   }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.toaster.success('Logout');
+  }
 }
