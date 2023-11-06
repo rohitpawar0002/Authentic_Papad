@@ -3,7 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from 'src/app/customer/services/cart.service';
 
 import { HttpServiceService } from '../../services/http-service.service';
-import { PlaceOrderComponent } from '../place-order/place-order.component';
+
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +18,6 @@ export class CartComponent implements OnInit {
   public grandTotal !:number;
   public productList:any;  
     constructor(private cartService:CartService,
-              private modalService: NgbModal,
               private httpService:HttpServiceService){}
 
   ngOnInit():void{  

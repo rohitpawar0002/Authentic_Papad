@@ -47,19 +47,7 @@
     margin-bottom: -1%;
     color:#ffffff;
 }
- .m-header h4{
-    margin-left: 35%;
-    
-}
-.closebutton{
-    margin-left:91%;
-    
-}
-.error-message{
-    color: red;
-    font-size: 15px;
-    
-}
+
 
 .form-control.ng-touched.ng-valid{
     border: 1px solid green;

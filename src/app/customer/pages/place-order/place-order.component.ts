@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { HttpServiceService } from '../../services/http-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastRef, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-place-order',
@@ -19,7 +20,7 @@ export class PlaceOrderComponent {
    modal: any;
   constructor(private modalService: NgbModal,
     private formBuilder: FormBuilder,
-    private httpService:HttpServiceService){}
+    private toster:ToastrService){}
 
   
   ngOnInit():void{
@@ -46,21 +47,17 @@ get address() {
   return this.placeform.get('address')
 }
 
-
-placeclick(){
- 
-  console.log(this.placeform.value);
- 
-}
 onSubmit(){
   
   this.submitted=true
 
   if(this.placeform.invalid){
+    this.toster.warning('Something Went Wrong')
       return;
     }
+
+    this.toster.success('Order is place successfully!')
     
 
-    alert("Sucess");
   }
 }

@@ -1,17 +1,10 @@
-<ng-template>
+
     <div class="modal-header m-header">
       <h4>Place Order Here..</h4>
-  
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      ></button>
-    </div>
+   </div>
     <div class="modal-body m-body">
       <form [formGroup]="placeform" (ngSubmit)="onSubmit()">
-        <div class="form-group col-7 mt-2">
+        <div class="form-group col-5 mt-2">
           <input
             formControlName="name"
             [ngClass]="{
@@ -36,7 +29,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group col-7 mt-2">
+        <div class="form-group col-5 mt-2">
           <input
             formControlName="mobile"
             [ngClass]="{
@@ -69,7 +62,7 @@
           </div>
         </div>
   
-        <div class="form-group col-7 mt-2">
+        <div class="form-group col-5 mt-2">
           <input
             formControlName="email"
             [ngClass]="{
@@ -103,7 +96,7 @@
         </div>
   
         <div formGroupName="address">
-          <div class="form-group col-7 mt-2">
+          <div class="form-group col-5 mt-2">
             <input
               formControlName="line1"
               [ngClass]="{
@@ -144,7 +137,7 @@
                 [ngClass]="{
                   'is-invalid': submitted && address?.get('zip')?.errors
                 }"
-                type="text"
+                type="number"
                 class="form-control"
                 placeholder="Zip Code"
               />
@@ -217,28 +210,18 @@
             </div>
           </div>
         </div>
-  
-        <div class="text-center">
-          <button
-            type="submit"
-            (click)="placeclick()"
-            class="btn btn-success mt-2"
-          >
-            Place
-          </button>
-        </div>
-      </form>
+   </form>
     </div>
     <div class="modal-footer m-footer">
-      <div class="closebutton">
         <button
-          type="button"
-          class="btn btn-danger"
-          (click)="modal.close('Close click')"
+          type="submit"
+          (click)="onSubmit()"
+          class="btn btn-success btn-lg col-3 mt-2"
         >
-          Close
+          Place
         </button>
-      </div>
     </div>
-  </ng-template>
+  
+
+  
   

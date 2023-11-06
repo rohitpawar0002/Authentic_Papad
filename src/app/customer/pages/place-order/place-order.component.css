@@ -1,0 +1,34 @@
+.m-body{
+    margin-left:28rem;
+   
+    
+}
+
+.m-header h4{
+    margin-left:33rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    
+}
+
+.error-message{
+    color: red;
+    font-size: 15px;
+    
+}
+
+.m-footer{
+    margin-right:39rem;
+    margin-bottom:1rem;
+}
+
+.elements{
+    margin: 2rem;
+}
+.elements button {
+    margin-left:50rem;
+    margin-top:-17rem;
+}
+.itemDetails{
+    background-color: #35445317;
+}
