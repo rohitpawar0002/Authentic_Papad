@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpServiceService } from 'src/app/customer/services/http-service.service';
+import { HttpServiceService } from 'src/app/shared/http-service.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -60,7 +60,7 @@ export class EditProductComponent implements OnInit {
         next:(res)=>{
           console.log(res);
           
-          this.toaster.success("product eddited succesfully!");
+          this.toaster.success("product edited successfully!");
           this.router.navigate(["admin/menu"])
         },
         error:(err)=>{}
@@ -72,7 +72,7 @@ export class EditProductComponent implements OnInit {
         next:(res)=>{
           console.log(res);
           
-          this.toaster.success("product added succesfully!");
+          this.toaster.success("product added successfully!");
           this.router.navigate(["admin/menu"])
         },
         error:(err)=>{}

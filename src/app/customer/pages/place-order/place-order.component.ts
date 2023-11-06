@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { HttpServiceService } from '../../services/http-service.service';
+import { HttpServiceService } from '../../../shared/http-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ToastRef, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-place-order',
@@ -12,20 +11,20 @@ import { ToastRef, ToastrService } from 'ngx-toastr';
 export class PlaceOrderComponent {
 
 
-  placeform!:FormGroup;
+  orderForm!:FormGroup;
   
   submitted=false;
 
   addressData = {};
    modal: any;
-  constructor(private modalService: NgbModal,
+  constructor(
     private formBuilder: FormBuilder,
     private toster:ToastrService){}
 
   
   ngOnInit():void{
 
-  this.placeform=this.formBuilder.group({
+  this.orderForm=this.formBuilder.group({
     name:['',Validators.required],
     mobile:['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     email:['',[Validators.required, Validators.email]],
@@ -44,15 +43,14 @@ export class PlaceOrderComponent {
 }
 
 get address() {
-  return this.placeform.get('address')
+  return this.orderForm.get('address')
 }
 
 onSubmit(){
   
   this.submitted=true
 
-  if(this.placeform.invalid){
-    this.toster.warning('Something Went Wrong')
+  if(this.orderForm.invalid){
       return;
     }
 

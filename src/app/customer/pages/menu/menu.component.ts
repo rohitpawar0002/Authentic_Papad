@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderDetailsService } from 'src/app/customer/services/order-details.service';
-import { CartService } from 'src/app/customer/services/cart.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartModalComponent } from 'src/app/CartModal/cart-modal.component';
-import { HttpServiceService } from '../../services/http-service.service';
+import { HttpServiceService } from '../../../shared/http-service.service';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -17,7 +16,6 @@ export class MenuComponent implements OnInit {
   constructor(
     private service: OrderDetailsService,
     private modalService: NgbModal,
-    private cartService:CartService,
     private httpService:HttpServiceService,
     private toaster:ToastrService
     
@@ -40,7 +38,7 @@ console.log(res);
 
   },
   error:(err)=>{
-    this.toaster.error("Porducts Fecting failed!")
+    this.toaster.error("Products fetching failed!", err.message)
   }
 })
     

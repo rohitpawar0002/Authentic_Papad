@@ -18,19 +18,19 @@
                   <div class="lockicon">
                      <fa-icon [icon]="faLock" class="fa-2x mt-1"></fa-icon>
                   </div>
-                  <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="headingtext">
                     <h3>Sign into your account</h3>
                   </div>
 
                     <div class="textfield">
                     <div class="form-outline mb-4">
-                      <input type="number" formControlName="mobile" [ngClass]="{'is-invalid':submitted && loginform.get('mobile')?.errors}" placeholder="Mobile" class="form-control form-control-lg" />
-                      <div *ngIf=" submitted || loginform.get('mobile')?.invalid && (loginform.get('mobile')?.dirty || loginform.get('mobile')?.touched)">
-                        <div *ngIf="loginform.get('mobile')?.hasError('required')">
+                      <input type="number" formControlName="mobile" [ngClass]="{'is-invalid':submitted && loginForm.get('mobile')?.errors}" placeholder="Mobile" class="form-control form-control-lg" />
+                      <div *ngIf=" submitted || loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.dirty || loginForm.get('mobile')?.touched)">
+                        <div *ngIf="loginForm.get('mobile')?.hasError('required')">
                          <!-- <div class="errormsg"><span class="text-danger">Email is required</span></div> -->
                         </div>
-                        <div *ngIf="loginform.get('mobile')?.hasError('pattern')">
+                        <div *ngIf="loginForm.get('mobile')?.hasError('pattern')">
                          <!-- <div class="errormsg"><span class="text-danger">Enter valid email</span></div> -->
                         </div>
                         
@@ -38,16 +38,16 @@
                     </div>
 
               
-                     <input [type]="type" formControlName="password" style="position: relative;" [ngClass]="{'is-invalid':submitted && loginform.get('password')?.errors}" placeholder="Password"  class="form-control form-control-lg" />
+                     <input [type]="type" formControlName="password" style="position: relative;" [ngClass]="{'is-invalid':submitted && loginForm.get('password')?.errors}" placeholder="Password"  class="form-control form-control-lg" />
               
                      
                       <div class="eye" (click)="hideShowPass()" class="fa {{eyeIcon}}"></div>
                     
-                   <div *ngIf=" submitted || loginform.get('password')?.invalid && (loginform.get('password')?.dirty || loginform.get('password')?.touched)">
-                      <div *ngIf="loginform.get('password')?.hasError('required')">
+                   <div *ngIf=" submitted || loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                      <div *ngIf="loginForm.get('password')?.hasError('required')">
                       <!--  <div class="errormsg"><span class="text-danger">Password is required</span></div>-->
                         </div>
-                        <div *ngIf="loginform.get('password')?.hasError('pattern')">
+                        <div *ngIf="loginForm.get('password')?.hasError('pattern')">
                        <!-- <div class="errormsg"><span class="text-danger"> Password must contain one uppercase letter 
                             and at least 5 characters<br>Password cannot contain whitespace</span></div>-->
                         </div>

@@ -3,25 +3,27 @@
     <!--Bucket-->
     <div class="navbar-cart d-flex">
       <div class="d-flex counter-object ">
-        <a routerLink="customer/cart"><i class="bi bi-cart4"
-          style="font-size: 2rem;"></i></a>
+        <a routerLink="customer/cart"><i class="bi bi-cart4" style="font-size: 2rem;"></i></a>
         <span>
-            <p class="badge bg-danger">{{totalItem}}</p>
+          <p class="badge bg-danger">{{totalItem}}</p>
         </span>
       </div>
     </div>
     <div class=" ms-3">
-          
-            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <a class="login-icon"  ngbDropdownToggle><i class="bi bi-person-lock"
-                style="font-size: 2rem;"></i></a>
-              <div class="dropdown-menu" ngbDropdownMenu>
-                <button *ngIf="!loggedin()" routerLink="customer/auth/login" ngbDropdownItem>Login</button>
-                <button *ngIf="!loggedin()" routerLink="customer/auth/signup"  ngbDropdownItem>Signup</button>
-                <button *ngIf="loggedin()" (click)="onLogout()" ngbDropdownItem>Logout</button>
-         
-            </div>
-          </div>
+
+      <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <a class="login-icon" ngbDropdownToggle><i class="bi bi-person-lock" style="font-size: 2rem;"></i></a>
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <span *ngIf="!isLoggedIN()">
+            <button routerLink="customer/auth/login" ngbDropdownItem>Login</button>
+            <button routerLink="customer/auth/signup" ngbDropdownItem>Signup</button>
+          </span>
+          <span *ngIf="isLoggedIN()">
+            <button (click)="logout()" ngbDropdownItem>Logout</button>
+          </span>
+
+        </div>
+      </div>
     </div>
 
 
@@ -56,7 +58,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav" style="z-index: 10;">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="customer/"  [routerLinkActive]="'active'"
+          <a class="nav-link" routerLink="customer/" [routerLinkActive]="'active'"
             [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">

@@ -2,7 +2,7 @@ import { Component, KeyValueDiffers, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpServiceService } from 'src/app/customer/services/http-service.service';
+import { HttpServiceService } from 'src/app/shared/http-service.service';
 
 @Component({
   selector: 'app-admin-signup',
@@ -15,8 +15,8 @@ export class AdminSignupComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private http:HttpServiceService,
-              private routrt:Router,
-              private toster:ToastrService) {}
+              private router:Router,
+              private toaster:ToastrService) {}
 
   ngOnInit(): void {
     this.signForm = this.fb.group(
@@ -58,11 +58,11 @@ export class AdminSignupComponent implements OnInit {
 
     this.http.post('auth/register/admin',this.signForm.value).subscribe({
       next:(res)=>{
-        this.toster.success('Please login now','Register Successful!')
-        this.routrt.navigate(['../login'])
+        this.toaster.success('Please login now','Register Successful!')
+        this.router.navigate(['../login'])
       },
       error:(err)=>{
-        this.toster.error('Please try agian','Invalid admin detiles')
+        this.toaster.error('Please try again','Invalid admin details')
       }
     })
     

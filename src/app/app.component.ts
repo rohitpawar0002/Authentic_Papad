@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpServiceService } from './customer/services/http-service.service';
 
 
 
@@ -14,7 +13,7 @@ import { HttpServiceService } from './customer/services/http-service.service';
 export class AppComponent implements OnInit{
 
   userData:any=[];
-  constructor(private httpService:HttpServiceService){  }
+  constructor(){  }
  
 
   ngOnInit(): void {

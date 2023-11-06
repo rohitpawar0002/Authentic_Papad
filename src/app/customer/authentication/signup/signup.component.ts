@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faL, faLock } from '@fortawesome/free-solid-svg-icons';
-import { HttpServiceService } from '../../services/http-service.service';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { HttpServiceService } from '../../../shared/http-service.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,13 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SignupComponent {
   faLock = faLock;
-  sinform = true;
-  addform = false;
+  userForm = true;
 
-  loginform!: FormGroup;
+  loginForm!: FormGroup;
   address!: FormGroup;
   submitted = false;
-  addresssubmitted = false;
+  addressSubmitted = false;
 
   type: string = 'password';
   isText: boolean = false;
@@ -32,10 +31,10 @@ export class SignupComponent {
     private formBuilder: FormBuilder,
     private http: HttpServiceService,
     private router: Router,
-    private toster:ToastrService
-  ) {}
+    private toaster: ToastrService
+  ) { }
   ngOnInit(): void {
-    this.loginform = this.formBuilder.group(
+    this.loginForm = this.formBuilder.group(
       {
         name: [
           '',
@@ -67,7 +66,7 @@ export class SignupComponent {
 
     this.address = this.formBuilder.group({
       line1: ['', Validators.required],
-      line2: ['', Validators.required],
+      line2: [''],
       pinCode: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
@@ -79,72 +78,63 @@ export class SignupComponent {
     this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
     this.isText ? (this.type = 'text') : (this.type = 'password');
   }
-  hideShowPass2() {
-    this.isText2 = !this.isText2;
-    this.isText2
-      ? (this.eyeIcon2 = 'fa-eye')
-      : (this.eyeIcon2 = 'fa-eye-slash');
-    this.isText2 ? (this.type2 = 'text') : (this.type2 = 'password');
-  }
 
   MustMatch(password: string, confirmPass: string) {
-    return (formgroup: FormGroup) => {
-      const passwordcontrol = formgroup.controls[password];
-      const confirmpasswordControl = formgroup.controls[confirmPass];
+    return (formGroup: FormGroup) => {
+      const passwordControl = formGroup.controls[password];
+      const confirmPasswordControl = formGroup.controls[confirmPass];
       if (
-        confirmpasswordControl.errors &&
-        !confirmpasswordControl.errors['MustMatch']
+        confirmPasswordControl.errors &&
+        !confirmPasswordControl.errors['MustMatch']
       ) {
         return;
       }
-      if (passwordcontrol.value !== confirmpasswordControl.value) {
-        confirmpasswordControl.setErrors({ MustMatch: true });
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ MustMatch: true });
       } else {
-        confirmpasswordControl.setErrors(null);
+        confirmPasswordControl.setErrors(null);
       }
     };
   }
 
   onSubmit() {
     this.submitted = true;
-    this.addresssubmitted = true;
-   
-    if (this.loginform.invalid) {
+    this.addressSubmitted = true;
+
+    if (this.loginForm.invalid) {
       return;
     }
     if (this.address.invalid) {
       return;
     }
 
-    console.log(this.loginform.value);
+    console.log(this.loginForm.value);
     console.log(this.address.value);
-    delete this.loginform.value.confirmPass
+    delete this.loginForm.value.confirmPass;
     this.http
       .post('auth/register/user', {
-        ...this.loginform.value,
+        ...this.loginForm.value,
         address: this.address.value,
       })
       .subscribe({
         next: (res: any) => {
           this.router.navigate(['../login']);
-          this.toster.success('Plesae login now','Register Suceessful!')
+          this.toaster.success('Please login now', 'Register Successfully!');
 
         },
         error: (err) => {
-          this.toster.error('Please try again','Invalid signup detiles')
+          this.toaster.error('Please try again', 'Invalid signup details');
         },
       });
   }
   toggleForm() {
     this.submitted = true;
-    if (this.loginform.invalid) {
+    if (this.loginForm.invalid) {
       return;
     }
-    this.sinform = false;
-    this.addform = true;
+    this.userForm = false;
   }
-  backfun() {
-    this.sinform = true;
-    this.addform = false;
+  backFn() {
+    this.userForm = true;
   }
 }

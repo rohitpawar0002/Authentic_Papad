@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpServiceService } from 'src/app/customer/services/http-service.service';
-import { LocalStorageService } from 'src/app/customer/services/local-storage.service';
+import { HttpServiceService } from 'src/app/shared/http-service.service';
+import { LocalStorageService } from 'src/app/shared/local-storage.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -14,8 +14,8 @@ export class AdminLoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpServiceService,
-    private toster: ToastrService,
-    private localstorageService: LocalStorageService,
+    private toaster: ToastrService,
+    private storageService: LocalStorageService,
     private router: Router
   ) {}
 
@@ -49,12 +49,12 @@ export class AdminLoginComponent implements OnInit {
 
     this.http.post('auth/login/admin', this.loginForm.value).subscribe({
       next: (res: any) => {
-        this.localstorageService.setItem('access-token', res?.token);
-        this.toster.success("You're welcome", 'Login Successfull!');
+        this.storageService.setItem('access-token', res?.token);
+        this.toaster.success("You're welcome", 'Login Successfull!');
         this.router.navigate(["admin/menu"]);
       },
       error: (err: any) => {
-        this.toster.error('Please Try Again', 'Invalid Admin');
+        this.toaster.error('Please Try Again', 'Invalid Admin');
       },
     });
   }
