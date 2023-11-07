@@ -23,11 +23,11 @@ export class NavbarComponent implements OnInit {
   }
 
   isLoggedIN() {
-    return localStorage.getItem('access-token');
+    return localStorage.getItem('token');
   }
 
   logout() {
-    localStorage.removeItem('access-token');
+    localStorage.removeItem('token');
     this.toaster.success('Logout');
     this.router.navigate(['admin/login'])
   }
