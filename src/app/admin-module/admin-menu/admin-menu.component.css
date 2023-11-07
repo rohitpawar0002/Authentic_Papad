@@ -1,75 +1,84 @@
-.foodbox
+.foodBox
 {
     padding:0.1rem;
+     max-width: 25rem;
+    min-width: 15rem;
 }
-.foodbox img
+.foodBox img
 {
     width:100%;     
-    height: 250px;
+    height: 15rem;
     object-fit: cover;
     border-radius: 5px;
     transition: 0.3s ease-in-out;
     filter: brightness(120%);
     filter: contrast(120%);
     filter: drop-shadow(5px 5px 5px black);
-   
+
 }
-.foodbox img:hover
+.foodBox img:hover
 {
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
 }
-
-.foodbox h1
+.foodBox h1
 {
     font-size: 1.5rem;
     margin-top: 20px;
     font-weight: bold;
     color:black;
 }
-.foodbox p{
+.foodBox p{
     
     color:black;
     margin: 1%;
 }
-.priceborder {
+.priceBorder p{
     border: solid white 1px;
-    background-color:#E8852E;
+    color:black;
+    background: rgb(218,210,153);
+    background: radial-gradient(circle, rgba(218,210,153,1) 1%, rgba(176,218,185,1) 83%);
     border-radius: 10px;
     padding:1rem;
     padding-left: 1rem;
+    margin-top: 4re
 }
 .text-success{
     font-size: 18px;
     color:black;
-    
+}
+#description{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.5rem;
+}
   
-  
-  
+.remove-color{
+    background-color: initial;
 }
 
 .buybtn{
     
     color:#ffffff;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: rgb(96,56,19);
+    background: linear-gradient(0deg, rgba(96,56,19,1) 1%, rgba(178,159,148,1) 83%);
     padding: 10px 10px;
     text-decoration: none;
     font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-
 }
 .buybtn a:hover{
     transition: 0.3s ease-in-out;
     transform: scale(1.1);
-}
-
-
+} 
 .cartbutton{
     color:#ffffff;
-    background-color:#333333;
+    background: rgb(96,56,19);
+    background: linear-gradient(0deg, rgba(96,56,19,1) 1%, rgba(178,159,148,1) 83%);
     padding: 10px 10px;
     margin-left:5%;
     text-decoration: none;
@@ -93,8 +102,6 @@
     padding:1rem;
     width: 50rem;
 
-}
-
-  
+} 
 
 

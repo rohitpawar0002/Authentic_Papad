@@ -1,7 +1,7 @@
 <div class="mainNavbar">
   <nav class="navbar navbar-color shadow navbar-expand-lg navbar-light px-3 py-0 ">
-    <!--Bucket-->
-    <div class="navbar-cart d-flex">
+    <!-- Bucket-->
+    <!-- <div class="navbar-cartBucket d-flex">
       <div class="d-flex counter-object ">
         <a routerLink="customer/cart"><i class="bi bi-cart4" style="font-size: 2rem;"></i></a>
         <span>
@@ -10,24 +10,8 @@
       </div>
     </div>
     <div class=" ms-3">
-
-      <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-        <a class="login-icon" ngbDropdownToggle><i class="bi bi-person-lock" style="font-size: 2rem;"></i></a>
-        <div class="dropdown-menu" ngbDropdownMenu>
-          <span *ngIf="!isLoggedIN()">
-            <button routerLink="customer/auth/login" ngbDropdownItem>Login</button>
-            <button routerLink="customer/auth/signup" ngbDropdownItem>Signup</button>
-          </span>
-          <span *ngIf="isLoggedIN()">
-            <button (click)="logout()" ngbDropdownItem>Logout</button>
-          </span>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!--Bucket End-->
+    </div> -->
+    <!--Bucket End -->
 
     <!--logo-->
     <div class="logo mt-2 ms-4 me-5">
@@ -35,9 +19,9 @@
     </div>
     <!--logo-->
 
-
-    <img class="hand-logo" src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
-
+    <div class="hand-logo">
+    <img  src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,9 +34,9 @@
 
     <div class="mobile d-flex">
       <p>Contact Us :-</p>
-      <a href="tel:9730023006" style="margin-left: 18rem;">9730023006 </a>
-      <a style="margin-left: 24rem;">&</a>
-      <a href="tel:9273823423" style="margin-left: 25rem;">9273823423</a>
+      <a href="tel:9730023006" style="margin-left:28rem;" >9730023006 </a>
+      <a style="margin-left:34rem;">&</a>
+      <a href="tel:9273823423" style="margin-left:35rem;">9273823423</a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -71,6 +55,22 @@
           <a class="nav-link" routerLink="customer/contact" [routerLinkActive]="'active'">Contact</a>
         </li>
       </ul>
+    </div>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <a class="login-icon" ngbDropdownToggle><i class="bi bi-person-lock" style="font-size: 2rem;"></i></a>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <span *ngIf="!isLoggedIN()">
+          <button routerLink="customer/cart" ngbDropdownItem>Cart<i class="bi bi-cart4" style="font-size: 1.5rem;"></i><span class="counter">
+            <p class="badge bg-danger">{{totalItem}}</p>
+          </span></button>
+          <button routerLink="customer/auth/login" ngbDropdownItem>Login</button>
+          <button routerLink="customer/auth/signup" ngbDropdownItem>Signup</button>
+        </span>
+        <span *ngIf="isLoggedIN()">
+          <button (click)="logout()" ngbDropdownItem>Logout</button>
+        </span>
+
+      </div>
     </div>
   </nav>
 </div>

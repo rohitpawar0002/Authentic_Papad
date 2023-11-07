@@ -4,8 +4,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
-import { authGuardGuard } from '../Guard/auth-guard.guard';
-import { loginGuard } from '../Guard/login.guard';
+import { authGuardGuard } from '../Guard/adminGuard/auth-guard.guard';
+import { loginGuard } from '../Guard/adminGuard/login.guard';
 
 const routes: Routes = [
   { path: 'login', canActivate: [loginGuard], component: AdminLoginComponent },

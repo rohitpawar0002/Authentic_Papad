@@ -1,27 +1,31 @@
-<div class="container mt-5 mb-5">
-    <div class="row">
-      <div class="col-lg-4" *ngFor="let item of foodData">
-        <div class="foodbox mb-3 mt-3">
+<div class="px-4 mt-5 mb-5">
+    <div class="row d-flex justify-content-between">
+     <div class="col-4 mx-1 card mb-4 border-0 foodBox" *ngFor="let item of foodData">
+        <div class=" border-0 remove-color">
           <img src="{{ item.foodImg }}" />
+        </div>
+        <div class="card-body">
           <h1>{{ item.foodName }}</h1>
-          <p>{{ item.foodDetails }}</p>
+          <p id="description">{{ item.foodDetails }}</p>
           <br />
-          <div>
-            <div class="priceborder">
-              <p>{{ item.foodPrice | currency : "INR" : "symbol" : "3.0" }} {{ item.unit }}</p>
-              
-              
+          
+            <div class="priceBorder">
+              <p>{{ item.foodPrice | currency : "INR" : "symbol" : "3.0" }} 
+                 {{ item.unit }}
+              </p>            
             </div>
-            <br />
+           
+            <div class="d-flex justify-content-between px-3 remove-color card-footer">
             <a class="buybtn" [routerLink]="['/menu', item.id]"
             >Delete</a>
               <a class="cartbutton" [routerLink]="['../edit/product',item.id]">Edit</a>
             </div>
-          </div>
+         
           
       </div>
     </div>
   </div>
+</div>
 
   <div class="addbutton">
     <button class="btn btn-danger" routerLink="../new/product">Add</button>

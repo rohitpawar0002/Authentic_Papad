@@ -1,34 +1,36 @@
-.m-body{
-    margin-left:28rem;
-   
-    
+.m-body {
+  margin-left: 30rem;
 }
 
-.m-header h4{
-    margin-left:33rem;
-    margin-top: 1rem;
-    font-weight: bold;
-    
+
+#order-Header{
+  margin-left: 35rem;
+  margin-top: 2rem;
+  font-weight: bold;
 }
 
-.error-message{
-    color: red;
-    font-size: 15px;
-    
+.error-message {
+  color: red;
+  margin-top: 4px;
+  margin-left: -13rem;
+  margin-top: -2rem;
 }
 
-.m-footer{
-    margin-right:39rem;
-    margin-bottom:1rem;
+
+
+.m-footer {
+  margin-right:20rem;
+  margin-left: 7.5rem;
+  margin-bottom: 1rem;
 }
 
-.elements{
-    margin: 2rem;
+.elements {
+  margin: 2rem;
 }
 .elements button {
-    margin-left:50rem;
-    margin-top:-17rem;
+  margin-left: 50rem;
+  margin-top: -17rem;
 }
-.itemDetails{
-    background-color: #35445317;
+.itemDetails {
+  background-color: #35445317;
 }
