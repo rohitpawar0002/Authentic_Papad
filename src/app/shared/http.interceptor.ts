@@ -21,7 +21,7 @@ export class httpInterceptor implements HttpInterceptor {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,
-        },
+      },
       });
     }
     return next.handle(request).pipe(

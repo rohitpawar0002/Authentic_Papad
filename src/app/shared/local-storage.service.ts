@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+   }
   setItem(key: string, data: string) {
     localStorage.setItem(key, data);
   }
@@ -16,7 +18,7 @@ export class LocalStorageService {
   getToken() {
     const token = (this.router.routerState.snapshot.url).includes("admin")
       ? "access-token" : "token";
-    return localStorage.getItem(token);
+       return localStorage.getItem(token);
   }
 
   removeToken() {
@@ -24,4 +26,5 @@ export class LocalStorageService {
       ? "access-token" : "token";
     return this.removeItem(token);
   }
+ 
 }

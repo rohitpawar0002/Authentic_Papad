@@ -9,7 +9,7 @@ export const authGuardGuard: CanActivateFn = (route, state) => {
 
   if (!token) {
     toaster.warning("User Not Found!","Please login!");
-    router.navigate(['../admin/login']);
+    router.navigate(['/admin/login']);
     return false;
   }
   return true;
