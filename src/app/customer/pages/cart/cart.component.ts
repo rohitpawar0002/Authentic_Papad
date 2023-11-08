@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CartService } from 'src/app/customer/services/cart.service';
 
 import { HttpServiceService } from '../../../shared/http-service.service';
@@ -11,30 +11,26 @@ import { HttpServiceService } from '../../../shared/http-service.service';
 export class CartComponent implements OnInit {
   [x: string]: any;
 
-  public products :any=[];
-  public grandTotal !:number;
-  public productList:any;  
-    constructor(private cartService:CartService,
-              private httpService:HttpServiceService){}
+  public products: any = [];
+  public grandTotal !: number;
+  public productList: any;
+  constructor(private cartService: CartService,
+    private httpService: HttpServiceService) { }
 
-  ngOnInit():void{  
+  ngOnInit(): void {
     this.cartService.getProducts()
-  .subscribe(res=>{
-    this.products=res;
-    this.grandTotal=this.cartService.getTotalPrice();   
-  })
+      .subscribe(res => {
+        this.products = res;
+        this.grandTotal = this.cartService.getTotalPrice();
+      });
 
-}
+  }
 
- 
-removeItem(item:any){
-  this.cartService.removeCartItem(item);
-  this.httpService.delete(item).subscribe((result)=>{
-    console.log(result);
-  })
-}
-emptyCart()
-{
-  this.cartService.removeAllCart();
-}
+
+  removeItem(item: any) {
+    this.cartService.removeCartItem(item);
+  }
+  emptyCart() {
+    this.cartService.removeAllCart();
+  }
 }
