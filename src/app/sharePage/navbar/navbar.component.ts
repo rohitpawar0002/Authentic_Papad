@@ -18,20 +18,18 @@ export class NavbarComponent implements OnInit {
     private cartService: CartService,
     private toaster: ToastrService,
     private router: Router,
-    private userService: UserService,
-    private localStorage: LocalStorageService,
-    private http: HttpServiceService
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
-    this.getUser();
+    this.userService.getCurrentUser();
     this.cartService.getProducts().subscribe((res) => {
       this.totalItem = res.length;
     });
 
     this.userService.getUser().subscribe({
       next: (res) => {
-        this.user = res;
+        this.user = res;        
       },
     });
   }
@@ -44,16 +42,5 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.toaster.success('Logout');
     this.router.navigate(['customer/auth/login']);
-  }
-
-  getUser() {
-    this.http.get('user').subscribe({
-      next: (res: any) => {
-        this.userService.setUser(res?.user);
-      },
-      error: (err) => {
-        this.toaster.error('error while fetching user', err.message);
-      },
-    });
   }
 }
