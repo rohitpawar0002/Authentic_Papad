@@ -43,8 +43,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.toaster.success('Logout');
-<<<<<<< Updated upstream
-=======
     this.router.navigate(['customer/auth/login']);
   }
 
@@ -57,6 +55,5 @@ export class NavbarComponent implements OnInit {
         this.toaster.error('error while fetching user', err.message);
       },
     });
->>>>>>> Stashed changes
   }
 }

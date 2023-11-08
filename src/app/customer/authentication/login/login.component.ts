@@ -62,12 +62,8 @@ export class LoginComponent implements OnInit {
         this.storageService.setItem('token', res?.token);
         this.userService.setUser(res?.user);
         this.toaster.success('Login Successful');
-<<<<<<< Updated upstream
         history.back();
         this.storageService.setItem('token', res?.token);
-=======
-        this.router.navigate(['/']);
->>>>>>> Stashed changes
       },
       error: (err: any) => {
         this.toaster.error('Invalid User', err.message);
