@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'',pathMatch: 'full',component:HomeComponent},
   {path:'about',component:AboutComponent},
   {path:'cart',component:CartComponent},
-  {path:'placeorder',canActivate:[authGuard],component:PlaceOrderComponent},
+  {path:'place/order',canActivate:[authGuard],component:PlaceOrderComponent},
   {path:'contact',component:ContactComponent},
   {path:'auth', loadChildren:()=>import("./authentication/authentication.module").then(x=> x.AuthenticationModule)},
   {path:'menu',component:MenuComponent},

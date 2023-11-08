@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.http.post('auth/login', this.loginForm.value).subscribe({
       next: (res: any) => {
         this.toaster.success('Login Successful');
-        this.router.navigate(['/']);
+        history.back();
         this.storageService.setItem('token', res?.token);
       },
       error: (err: any) => {

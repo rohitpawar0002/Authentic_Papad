@@ -8,7 +8,7 @@ export const loginGuard: CanActivateFn = (route, state) => {
   const token=localStorage.getItem('token')
   if(token){
     toaster.success('User Found!','You have already login');
-    router.navigate(['../placeorder'])
+    router.navigate(['/'])
     return true;
   }
   return true;
