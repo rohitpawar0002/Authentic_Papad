@@ -79,4 +79,19 @@ export class EditProductComponent implements OnInit {
       })
     }
   }
+  onChangeImage(event:any){
+      if(event.target.files.length>0){
+        const images=event.target.files[0];
+        if(images.type=='image/png' || images.type=='image/jpeg'){
+          const formData=new FormData();
+          formData.append('images',images);
+          console.log(images);
+          //http post request here..
+          this.toaster.success('Please check menu','Image Added Successfully!')
+        }else{
+          this.toaster.error('Please select only jpeg and png');
+        }
+      
+      }
+  }
 }

@@ -1,3 +1,11 @@
+<div class="fileElement">
+  <input hidden type="file" #imageUpload (change)="onChangeImage($event)">
+  <div class="fileElementIcon">
+  <i class="bi bi-cloud-plus-fill" (click)="imageUpload.click()"></i>
+  </div>
+  <p (click)="imageUpload.click()">Upload Image</p>
+</div>
+
 <div class="formsize">
   <div class="container mt-4">
     <form [formGroup]="editForm" (ngSubmit)="submit()">
@@ -63,8 +71,7 @@
 
       <div class="backbutton">
         <button
-          type="submit"
-          routerLink="../../../menu"
+           routerLink="../../../menu"
           class="btn btn-dark mb-4"
         >
           Back
@@ -73,3 +80,5 @@
     </form>
   </div>
 </div>
+
+
