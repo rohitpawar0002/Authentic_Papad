@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NavbarComponent } from './sharePage/navbar/navbar.component';
-import { FooterComponent } from './sharePage/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,8 +18,6 @@ import { httpInterceptor } from './shared/http.interceptor';
   declarations: [
     AppComponent,
     CartModalComponent,
-    NavbarComponent,
-    FooterComponent,
   ],
 
   imports: [
@@ -29,12 +25,12 @@ import { httpInterceptor } from './shared/http.interceptor';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
+      timeOut: 1000,
       positionClass: 'toast-top-right',
     }),
+    NgbModule,
     NgSelectModule,
     FontAwesomeModule,
     HttpClientModule

@@ -1,4 +1,4 @@
-<section class="pagebackground ">
+<section class="page-background h-100">
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -15,11 +15,11 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
                     <!--Lock Icon-->
-                  <div class="lockicon">
+                  <div class="lock-icon">
                      <fa-icon [icon]="faLock" class="fa-2x mt-1"></fa-icon>
                   </div>
                   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <div class="headingtext">
+                    <div class="heading-text">
                     <h3>Sign into your account</h3>
                   </div>
 
@@ -61,7 +61,7 @@
                     
                   </div>
 
-                  <div class="bottmotext">
+                  <div class="bottom-text">
                    <p >Don't have an account? <a routerLink="../signup">Register here</a></p>
                   </div>  
                   </form>

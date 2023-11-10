@@ -1,10 +1,10 @@
-.pagebackground{
+.page-background{
     background-color:#9ac1bc;
 }
 .container{
     padding:2rem ;
 }
-.headingtext{
+.heading-text{
     margin-top:1rem;
     margin-left:5.2rem;
     color: black;
@@ -14,7 +14,7 @@
 .textfield{
     margin-top:4rem;
 }
-.errormsg{
+.error-msg{
     margin-top:0.7rem;
 }
 .button{
@@ -22,19 +22,18 @@
 }
 .eye{
     position: absolute;
-    top:52%;
-    left:49rem;
+    top:54.5%;
+    left:50rem;
     cursor: pointer;
-    
+    transform: scale(1.2);
 }
-.bottmotext p{
+.bottom-text p{
     color:black;
     margin-top:2rem;
 }
 
-.lockicon{
+.lock-icon{
     text-align: center;
-    margin-top:-2rem;
 }
 .image img{ 
     height:35rem;

@@ -3,11 +3,9 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/customer/services/cart.service';
 import { UserService } from 'src/app/customer/services/user.service';
-import { HttpServiceService } from 'src/app/shared/http-service.service';
-import { LocalStorageService } from 'src/app/shared/local-storage.service';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'customer-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
@@ -19,7 +17,7 @@ export class NavbarComponent implements OnInit {
     private toaster: ToastrService,
     private router: Router,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userService.getCurrentUser();
@@ -29,7 +27,7 @@ export class NavbarComponent implements OnInit {
 
     this.userService.getUser().subscribe({
       next: (res) => {
-        this.user = res;        
+        this.user = res;
       },
     });
   }
@@ -41,6 +39,6 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.toaster.success('Logout');
-    this.router.navigate(['customer/auth/login']);
+    this.userService.setUser({});
   }
 }

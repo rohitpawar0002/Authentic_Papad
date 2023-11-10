@@ -12,17 +12,17 @@
       </div>
       <div class="d-flex justify-content-center">
         <span>
-          <a class="nav-link" routerLink="customer/" [routerLinkActive]="'active'"
+          <a class="nav-link" routerLink="/" [routerLinkActive]="'active'"
             [routerLinkActiveOptions]="{exact:true}">Home</a>
         </span>
         <span>
-          <a class="nav-link" routerLink="customer/menu" [routerLinkActive]="'active'">Menu</a>
+          <a class="nav-link" routerLink="menu" [routerLinkActive]="'active'">Menu</a>
         </span>
         <span>
-          <a class="nav-link" routerLink="customer/about" [routerLinkActive]="'active'">About</a>
+          <a class="nav-link" routerLink="about" [routerLinkActive]="'active'">About</a>
         </span>
         <span>
-          <a class="nav-link" routerLink="customer/contact" [routerLinkActive]="'active'">Contact</a>
+          <a class="nav-link" routerLink="contact" [routerLinkActive]="'active'">Contact</a>
         </span>
       </div>
     </div>
@@ -40,24 +40,37 @@
       </div>
       <div class="d-flex justify-content-center">
         <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-          <a class="login-icon" ngbDropdownToggle><i class="bi bi-person-lock" style="font-size: 2rem;"></i> {{user?.name}}</a>
+          <a class="login-icon" ngbDropdownToggle><i class="bi bi-person" style="font-size: 2rem;"></i>
+            {{user?.name}}
+            <span *ngIf="totalItem"
+              class="badge-animation bg-success position-absolute top-10 start-100 translate-middle-x">
+            </span>
+          </a>
           <div class="dropdown-menu" ngbDropdownMenu>
-            <button routerLink="customer/cart" ngbDropdownItem>
+            <button routerLink="cart"  class="dropdown-item" ngbDropdownItem>
               <i class="bi bi-cart4" style="font-size: 1.5rem;"></i>
-              <span
-                class="badge bg-danger position-absolute top-10 start-50 ms-2 p-1 translate-middle-x">{{totalItem}}</span>
+              <span *ngIf="totalItem"
+                class="badge bg-danger position-absolute top-10 start-50 ms-2 p-1 translate-middle-x">
+                {{totalItem}}
+              </span>
               Cart
             </button>
             <span *ngIf="!isLoggedIN()">
-              <button routerLink="customer/auth/login" ngbDropdownItem>Login</button>
-              <button routerLink="customer/auth/signup" ngbDropdownItem>Signup</button>
+              <button routerLink="auth/login" class="dropdown-item" ngbDropdownItem>
+                <i class="bi bi-box-arrow-in-right" style="font-size: 1.4rem;"></i>
+                Login</button>
+              <button routerLink="auth/signup" class="dropdown-item" ngbDropdownItem>
+                <i class="bi bi-pencil-square" style="font-size: 1.2rem;"></i>
+                Signup</button>
             </span>
             <span *ngIf="isLoggedIN()">
-              <button (click)="logout()" ngbDropdownItem>Logout</button>
+              <button (click)="logout()" class="dropdown-item" ngbDropdownItem><i class="bi bi-box-arrow-right"
+                  style="font-size: 1.3rem;"></i>
+                Logout</button>
             </span>
           </div>
         </div>
       </div>
-    </div>   
+    </div>
   </nav>
 </div>

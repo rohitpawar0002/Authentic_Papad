@@ -2,40 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
-import { AboutComponent } from './pages/about/about.component';
-import { CartComponent } from './pages/cart/cart.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { HomeComponent } from './pages/home/home.component';
-import { MenuComponent } from './pages/menu/menu.component';
-import { BuyNowComponent } from './pages/buy-now/buy-now.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PlaceOrderComponent } from './pages/place-order/place-order.component';
 
 
 
 @NgModule({
-  declarations: [
-  AboutComponent,
-  CartComponent,
-  ContactComponent,
-  HomeComponent,
-  MenuComponent,
-  BuyNowComponent,
-  PlaceOrderComponent,
- 
-   
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule,
-    NgSelectModule,
-    FontAwesomeModule,
-  ]
+  ],
+  exports: [ ]
 })
 export class CustomerModule { }
