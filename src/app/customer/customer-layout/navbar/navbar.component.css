@@ -2,7 +2,6 @@
     position: relative;
     top: 0;
     z-index: 15;
-
 }
 
 .navbar-light .navbar-nav .nav-link .active-link {
@@ -58,12 +57,10 @@ a:hover {
     position: absolute;
     color: #ffff;
     font-weight: 100;
-
 }
 
 .mobile a {
     margin-top: -1.6rem;
-
     width: auto;
     position: absolute;
     text-decoration: none;
