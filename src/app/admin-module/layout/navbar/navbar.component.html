@@ -1,0 +1,49 @@
+<div class="mainNavbar">
+  <nav class="navbar navbar-color shadow navbar-light px-3 m-0 py-2 row">
+    <!--logo-->
+    <div class="logo p-0 ms-2 col-4">
+      <img src="../../assets/authenticlogo/logo2.png" alt="Logo not found!">
+    </div>
+
+    <!-- Menu -->
+    <div class="col-5 ">
+      <div class="d-flex justify-content-center hand-logo pt-4">
+        <img src="../../assets/navbarnamsteimage/navbarimage.png" alt="">
+      </div>
+      <div class="d-flex justify-content-center">
+        <span>
+          <a class="nav-link" routerLink="/admin/menu" [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </span>
+      </div>
+    </div>
+
+
+
+    <!-- User Account Dropdown -->
+    <div class="col-3 p-0">
+      <div class="d-flex justify-content-center">
+        <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+          <a class="login-icon" ngbDropdownToggle><i class="bi bi-person" style="font-size: 2rem;"></i>
+            {{user?.name}}
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <span *ngIf="!isLoggedIN()">
+              <button routerLink="auth/login" class="dropdown-item" ngbDropdownItem>
+                <i class="bi bi-box-arrow-in-right" style="font-size: 1.4rem;"></i>
+                Login</button>
+              <button routerLink="auth/signup" class="dropdown-item" ngbDropdownItem>
+                <i class="bi bi-pencil-square" style="font-size: 1.2rem;"></i>
+                Signup</button>
+            </span>
+            <span *ngIf="isLoggedIN()">
+              <button (click)="logout()" class="dropdown-item" ngbDropdownItem><i class="bi bi-box-arrow-right"
+                  style="font-size: 1.3rem;"></i>
+                Logout</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

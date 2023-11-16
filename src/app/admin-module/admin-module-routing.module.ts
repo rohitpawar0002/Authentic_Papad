@@ -6,6 +6,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { authGuardGuard } from '../Guard/adminGuard/auth-guard.guard';
 import { loginGuard } from '../Guard/adminGuard/login.guard';
+import { AdminLayoutComponent } from './layout/admin-layout.component';
 
 const routes: Routes = [
   { path: 'login', canActivate: [loginGuard], component: AdminLoginComponent },
@@ -15,19 +16,25 @@ const routes: Routes = [
     component: AdminSignupComponent,
   },
   {
-    path: 'menu',
+    path: '',
     canActivate: [authGuardGuard],
-    component: AdminMenuComponent,
-  },
-  {
-    path: 'edit/product/:productId',
-    canActivate: [authGuardGuard],
-    component: EditProductComponent,
-  },
-  {
-    path: 'new/product',
-    canActivate: [authGuardGuard],
-    component: EditProductComponent,
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: 'menu',
+        component: AdminMenuComponent
+      },
+      {
+        path: 'edit/product/:productId',
+        canActivate: [authGuardGuard],
+        component: EditProductComponent,
+      },
+      {
+        path: 'new/product',
+        canActivate: [authGuardGuard],
+        component: EditProductComponent,
+      },
+    ]
   },
 ];
 
@@ -36,5 +43,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AdminModuleRoutingModule {
-  constructor() {}
+  constructor() { }
 }

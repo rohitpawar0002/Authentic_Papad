@@ -28,7 +28,10 @@ import { httpInterceptor } from './shared/http.interceptor';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 1000,
+      extendedTimeOut: 500,
       positionClass: 'toast-top-right',
+      progressBar: true,
+      autoDismiss: true
     }),
     NgbModule,
     NgSelectModule,
@@ -37,7 +40,7 @@ import { httpInterceptor } from './shared/http.interceptor';
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi:true}
+    { provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   exports: [CartModalComponent],

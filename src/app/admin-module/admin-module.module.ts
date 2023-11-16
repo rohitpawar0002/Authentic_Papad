@@ -10,6 +10,7 @@ import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LayoutModule } from './layout/layout.module';
 
 
 
@@ -29,7 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',
-    })
+    }),
+    LayoutModule
   ]
 })
 export class AdminModuleModule { }
