@@ -33,6 +33,6 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('access-token');
     this.toaster.success('Logout SuccessFully!');
     this.userService.setUser({});
-    this.router.navigate(['/'])
+    this.router.navigate(['/admin/login'])
   }
 }

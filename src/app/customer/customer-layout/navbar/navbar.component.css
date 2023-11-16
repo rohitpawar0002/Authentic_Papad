@@ -36,10 +36,6 @@ a:hover {
     background-color: #DD9934
 }
 
-.hand-logo {
-    margin-top: -1.3rem;
-}
-
 .logo img {
     max-width: 100%;
     max-height: 100%;
@@ -47,8 +43,8 @@ a:hover {
 }
 
 .logo {
-    width: 15vw;
-    height: 6vw;
+    width: 12vw;
+    height: 5vw;
 }
 
 .mobile p {
