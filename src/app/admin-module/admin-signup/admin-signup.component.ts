@@ -13,6 +13,12 @@ export class AdminSignupComponent implements OnInit {
   signForm!: FormGroup;
   submitted = false;
 
+  type: string = 'password';
+  isText: boolean = false;
+  eyeIcon: string = 'fa-eye-slash';
+
+  
+
   constructor(private fb: FormBuilder,
               private http:HttpServiceService,
               private router:Router,
@@ -84,5 +90,11 @@ export class AdminSignupComponent implements OnInit {
         confirmPasswordControl.setErrors(null);
       }
     };
+  }
+
+  hideShowPass(){
+    this.isText = !this.isText;
+    this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
+    this.isText ? (this.type = 'text') : (this.type = 'password');
   }
 }

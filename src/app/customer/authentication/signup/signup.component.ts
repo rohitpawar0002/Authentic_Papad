@@ -118,8 +118,8 @@ export class SignupComponent {
       })
       .subscribe({
         next: (res: any) => {
-          this.router.navigate(['../login']);
-          this.toaster.success('Please login now', 'Register Successfully!');
+            this.toaster.success('Please login now', 'Register Successfully!');
+            this.router.navigate(['/auth/login']);
 
         },
         error: (err) => {

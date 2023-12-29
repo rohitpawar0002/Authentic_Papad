@@ -61,7 +61,7 @@
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <input
-                  type="password"
+                  [type]="type"
                   formControlName="password"
                   [ngClass]="{
                     'is-invalid': submitted && loginForm.get('password')?.errors
@@ -86,6 +86,9 @@
                   <div *ngIf="loginForm.get('password')?.hasError('patter')">
                     <p class="text-danger">Enter valid password</p>
                   </div>
+                </div>
+                <div class="eye">
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
                 </div>
               </div>
 

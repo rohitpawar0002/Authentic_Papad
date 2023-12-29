@@ -22,6 +22,10 @@ export class AdminLoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
 
+  type: string = 'password';
+  isText: boolean = false;
+  eyeIcon: string = 'fa-eye-slash';
+
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       mobile: [
@@ -57,5 +61,10 @@ export class AdminLoginComponent implements OnInit {
         this.toaster.error('Please Try Again', 'Invalid Admin');
       },
     });
+  }
+  hideShowPass(){
+    this.isText = !this.isText;
+    this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
+    this.isText ? (this.type = 'text') : (this.type = 'password');
   }
 }

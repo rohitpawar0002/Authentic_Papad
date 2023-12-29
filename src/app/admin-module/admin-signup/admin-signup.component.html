@@ -117,7 +117,7 @@
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                   <input
-                    type="password"
+                    [type]="type"
                     formControlName="password"
                     [ngClass]="{
                       'is-invalid':
@@ -142,11 +142,14 @@
                       <!-- <p class="text-danger">Enter valid password</p> -->
                     </div>
                   </div>
+                  <div class="eye">
+                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                  </div>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input
-                    type="password"
+                    [type]="type"
                     formControlName="confirmPassword"
                     [ngClass]="{
                       'is-invalid':
@@ -180,6 +183,9 @@
                     >
                       <!-- <p class="text-danger">Password didn't match</p> -->
                     </div>
+                  </div>
+                  <div class="eye">
+                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
                   </div>
                 </div>
 
